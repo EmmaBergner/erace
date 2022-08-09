@@ -1,0 +1,26 @@
+.NavBar {
+    background-color: #ffffff;
+    border: 1px solid grey;
+}
+
+.NavLink {
+    padding: 5px;
+}
+
+.Active{
+    color: rgba(108, 108, 210, 0.877)
+}
+
+svg {
+    color: #cfced3;
+    font-size: 1.6rem;
+    padding: 7px;
+    vertical-align: middle !important;
+  }
+  
+svg:hover {
+    cursor: pointer;
+    transition: color ease-in-out 0.3s;
+    color: #2142b2;
+  }
+  
