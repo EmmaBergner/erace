@@ -77,7 +77,7 @@ function RacesPage({ message, filter = "" }) {
                                 <InfiniteScroll
                                     children={
                                         races.results.map((race) => (
-                                            <Race key={race.id} {...race} />
+                                            <Race key={race.id} {...race} setRaces ={setRaces}/>
                                         ))
                                     }
                                     dataLength={races.results.length}

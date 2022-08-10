@@ -11,7 +11,7 @@ function CreateRace() {
   useRedirect('loggedOut')
   const [errors, setErrors] = useState({});
 
-  const [raceData, setRaceData] = useState({ name: "", date: "", time: "time", distance: "", country: "", website: "", });
+  const [raceData, setRaceData] = useState({ name: "", date: "", time: "", distance: "", country: "", website: "", });
 
   const { name, date, time, distance, country, website, } = raceData;
 
@@ -25,13 +25,12 @@ function CreateRace() {
   };
 
   const handleSubmit = async (event) => {
-    console.log('---> handleSubmit name , date, distance, country, website):', name , date + "T12:00:00", distance, country, website)
+    console.log('---> handleSubmit name , date, distance, country, website):', name , date + "T" + time, distance, country, website)
     event.preventDefault();
     try {
       const formData = new FormData();
       formData.append("name", name);
-      formData.append("date", date + "T12:00:00");
-      formData.append("time", time);
+      formData.append("date", date + "T" + time);
       formData.append("distance", distance);
       formData.append("country", country);
       formData.append("website", website);
@@ -70,7 +69,7 @@ function CreateRace() {
         />
         <Form.Label>Date:</Form.Label>
         <Form.Control className={styles.Input}
-          type="date"
+          type="date" 
           name="date"
           value={date}
           onChange={handleChange}
