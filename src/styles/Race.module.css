@@ -10,16 +10,16 @@
     margin: 0 0;
   }
   
-  .Heart {
-    color: #f85032;
+  .Icon {
+    color: #f98f03;
   }
   
-  .Heart:hover {
-    color: #2142b2;
+  .Icon:hover {
+    color: #93040497;
   }
   
-  .HeartOutline:hover {
-    color: #f85032;
+  .IconOutline:hover {
+    color: #93040497;
   }
 
   .IconCol {

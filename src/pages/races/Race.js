@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { Card, } from 'react-bootstrap';
 import styles from "../../styles/Race.module.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { axiosRes } from '../../api/axiosDefault';
@@ -9,39 +9,30 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 const Race = (props) => {
     const {
-        id,  star_id, owner, name, distance, country, date, website, created_at, updated_at, like_id, setRaces,
+        id, star_id, run_id, owner, name, distance, country, date, website, created_at, updated_at, like_id, setRaces,
     } = props;
 
     const currentUser = useCurrentUser();
 
     const is_owner = currentUser?.username === owner
 
-    const handleStar = async () => {
-        console.log(currentUser)
-        console.log({ owner: currentUser.id, race: id })
-        try {
-            const { data } = await axiosRes.post('/stars/', { owner: currentUser.pk, race: id });
-            setRaces((prevRaces) => ({
-                ...prevRaces,
-                results: prevRaces.results.map((race) => {
-                    return race.id === id
-                        ? { ...race, star_id: data.id }
-                        : race;
-                }),
-            }));
-        } catch (err) {
-            console.log(err);
-        }
-    };
+    const handleStar = async () => handleActivate('/stars/', 'star_id');
+    const handleUnstar = async () => handleDeactivate('/stars/', 'star_id', star_id);
 
-    const handleUnstar = async () => {
+    const handleRun = async () => handleActivate('/runs/', 'run_id');
+    const handleUnrun = async () => handleDeactivate('/runs/', 'run_id', run_id);
+
+
+    const handleDeactivate = async (path, idProp, idValue) => {
         try {
-            await axiosRes.delete(`/stars/${star_id}/`);
+            await axiosRes.delete(path + idValue);
             setRaces((prevRaces) => ({
                 ...prevRaces,
                 results: prevRaces.results.map((race) => {
+                    let update = { ...race }
+                    update[idProp] = null
                     return race.id === id
-                        ? { ...race, star_id: null }
+                        ? update
                         : race;
                 }),
             }));
@@ -49,7 +40,24 @@ const Race = (props) => {
             console.log(err);
         }
     }
-
+    
+    const handleActivate = async (path, idProp) => {
+        try {
+            const { data } = await axiosRes.post(path, { owner: currentUser.pk, race: id });
+            setRaces((prevRaces) => ({
+                ...prevRaces,
+                results: prevRaces.results.map((race) => {
+                    let update = { ...race }
+                    update[idProp] = data.id
+                    return race.id === id
+                        ? update
+                        : race;
+                }),
+            }));
+        } catch (err) {
+            console.log(err);
+        }
+    };
     return (
         <Card className={styles.Race}>
             <Card.Body>
@@ -77,14 +85,20 @@ const Race = (props) => {
                         <div className="IconCol col">
                             {star_id ? (
                                 <span onClick={handleUnstar}>
-                                         <FontAwesomeIcon icon="fa-solid fa-star" className={styles.Heart}/>
-                                    <FontAwesomeIcon icon="fa-solid fa-person-running" className={styles.Heart}/>
-
+                                    <FontAwesomeIcon icon="fa-solid fa-star" className={styles.Icon} />
                                 </span>
                             ) : (
                                 <span onClick={handleStar}>
-                                    <FontAwesomeIcon icon="fa-solid fa-star" className={styles.HeartOutline}/>
-                                    <FontAwesomeIcon icon="fa-solid fa-person-running" className={styles.HeartOutline}/>
+                                    <FontAwesomeIcon icon="fa-solid fa-star" className={styles.IconOutline} />
+                                </span>)}
+
+                            {run_id ? (
+                                <span onClick={handleUnrun}>
+                                    <FontAwesomeIcon icon="fa-solid fa-person-running" className={styles.Icon} />
+                                </span>
+                            ) : (
+                                <span onClick={handleRun}>
+                                    <FontAwesomeIcon icon="fa-solid fa-person-running" className={styles.IconOutline} />
                                 </span>)}
                         </div>
                     </div>

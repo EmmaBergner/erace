@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import NoResults from "../../assets/no-results.png";
+
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
@@ -12,7 +12,7 @@ import { axiosReq } from "../../api/axiosDefault";
 import Asset from "../../components/Asset";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
-import Race from "./Race";
+import Race from "./Race.js";
 import { useNavigate } from "react-router-dom";
 
 
@@ -31,6 +31,7 @@ function RacesPage({ message, filter = "" }) {
     const handleCreate = () => {
         navigate(`/races/create`)
     }
+
 
     const fetchRaces = async () => {
         try {
@@ -59,7 +60,7 @@ function RacesPage({ message, filter = "" }) {
             onClick={() => handleCreate()}
             type="button"
         >
-            Add race   <i className="fas fa-plus-square"></i>
+            Add race
         </button>
 
             <Row className="h-100">
@@ -67,8 +68,7 @@ function RacesPage({ message, filter = "" }) {
                     <i className={`fas fa-search ${styles.SearchIcon}`} />
 
                     <Form className={styles.SearchBar} onSubmit={(event) => event.preventDefault()}>
-                        <Form.Control type="text" value={query} onChange={(event) => setQuery(event.target.value)} 
-                        className="mr-sm-2" placeholder="Search races" />
+                        <Form.Control type="text" value={query} onChange={(event) => setQuery(event.target.value)} className="mr-sm-2" placeholder="Search country" />
                     </Form>
 
                     {hasLoaded ? (
@@ -77,7 +77,7 @@ function RacesPage({ message, filter = "" }) {
                                 <InfiniteScroll
                                     children={
                                         races.results.map((race) => (
-                                            <Race key={race.id} {...race} setRaces ={setRaces}/>
+                                            <Race key={race.id} {...race} setRaces={setRaces} />
                                         ))
                                     }
                                     dataLength={races.results.length}
@@ -87,7 +87,7 @@ function RacesPage({ message, filter = "" }) {
                                 />
                             ) : (
                                 <Container className={appStyles.Content}>
-                                    <Asset src={NoResults} message={message} />
+                                    Please add some races and run with it!  
                                 </Container>
                             )}
                         </>
