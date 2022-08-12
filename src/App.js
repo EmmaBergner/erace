@@ -12,6 +12,7 @@ import RacesPage from './pages/races/RacesPage';
 import { Container } from 'react-bootstrap';
 import RaceCreateForm from './pages/races/CreateRace';
 import HomePage from './pages/home/HomePage';
+import RunsPage from './pages/runs/RunsPage';
 library.add(faPersonRunning, faStar, faEarthAmericas)
 
 function App() {
@@ -26,13 +27,14 @@ function App() {
         <Route exact path="/races"
           element={<RacesPage
             message="No results found. Adjust the search keyword or follow a user."
-            filter={`owner__followed__owner__profile=${profile_id}&`} />} />
+            filter={""} />} />
 
         <Route exact path="/signup" element={<SignUpForm />} />
         <Route exact path="/signin" element={<SignInForm />} />
         <Route exact path="/" element={<HomePage />} />
         <Route exact path="/races" element={<RacesPage />} />
         <Route exact path="/races/create" element={<RaceCreateForm />} />
+        <Route exact path="/runs" element={<RunsPage/>} />
 
         <Route path="*" element={<p>Page not found</p>} />
       </Routes>

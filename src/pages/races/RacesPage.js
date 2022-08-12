@@ -26,6 +26,12 @@ function RacesPage({ message, filter = "" }) {
 
     const [query, setQuery] = useState("");
 
+    const [country, setCountry] = useState("")
+
+    const [starOnly, setStarOnly] = useState(false)
+
+    const [upcoming, setUpcoming] = useState(false)
+
     const navigate = useNavigate();
 
     const handleCreate = () => {
@@ -35,12 +41,27 @@ function RacesPage({ message, filter = "" }) {
 
     const fetchRaces = async () => {
         try {
-            const { data } = await axiosReq.get(`/races/?${filter}search=${query}`);
+            const filter = starOnly ? 'stars__owner__profile=3&' : ''
+            const { data } = await axiosReq.get(`/races/?${filter}search=${country}`);
+            if (upcoming) {
+                data.results = filterUpcoming(data.results)
+            }
             setRaces(data)
             setHasLoaded(true)
         } catch (err) {
             console.log(err)
         }
+    }
+
+    const filterUpcoming = (allRaces) => {
+        
+        const anwser = []
+        for (let i = 0; i < allRaces.length; i++) {
+            const race = allRaces[i];
+
+            anwser.push(race)
+        } 
+        return anwser
     }
 
     useEffect(() => {
@@ -52,6 +73,12 @@ function RacesPage({ message, filter = "" }) {
             clearTimeout(timer);
         };
     }, [filter, query, pathname]);
+
+
+    useEffect(() => {
+        setHasLoaded(false);
+        fetchRaces();
+    }, [country, starOnly, upcoming]);
 
     // EM Ta bort Row och Col om dom inte behövs.
     return (
@@ -68,8 +95,11 @@ function RacesPage({ message, filter = "" }) {
                     <i className={`fas fa-search ${styles.SearchIcon}`} />
 
                     <Form className={styles.SearchBar} onSubmit={(event) => event.preventDefault()}>
-                        <Form.Control type="text" value={query} onChange={(event) => setQuery(event.target.value)} className="mr-sm-2" placeholder="Search country" />
+                        <Form.Control type="text" value={country} onChange={(event) => setCountry(event.target.value)} className="mr-sm-2" placeholder="Search country" />
+                        <Form.Check type="checkbox" value={starOnly} onChange={(event) => setStarOnly(!starOnly)} className="mr-sm-2" label="Liked" />
+                        <Form.Check type="checkbox" value={upcoming} onChange={(event) => setUpcoming(!upcoming)} className="mr-sm-2" label="Upcoming" />
                     </Form>
+
 
                     {hasLoaded ? (
                         <>
@@ -87,7 +117,7 @@ function RacesPage({ message, filter = "" }) {
                                 />
                             ) : (
                                 <Container className={appStyles.Content}>
-                                    Please add some races and run with it!  
+                                    Please add some races and run with it!
                                 </Container>
                             )}
                         </>

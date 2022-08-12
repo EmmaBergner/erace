@@ -73,8 +73,19 @@ function HomePage({ message, filter = "" }) {
 
     return (
         <>
-            {hasLoaded ?
+            {!hasLoaded ?
                 (
+                    <Container className={appStyles.Content}>
+                        <Asset spinner />
+                    </Container>
+                )
+                :
+                nextRace == null ?
+                (
+                <div> Welcome to my site</div>
+                )
+                :
+                ( 
                     <Card className={styles.HomePage}>
                         <Card.Body>
                             <div className="container">
@@ -83,7 +94,6 @@ function HomePage({ message, filter = "" }) {
                                         {Math.floor(timeLeftSeconds / (60 * 60 * 24))}
                                         <p>Days</p>
                                     </div>
-
                                     <div className="NameCol col" >
                                         {Math.floor(timeLeftSeconds % (60 * 60 * 24) / (60 * 60))}.
                                         <p>Hours</p>
@@ -99,20 +109,13 @@ function HomePage({ message, filter = "" }) {
                                 </div>
                             </div>
                             <div className="row justify-content-md-center NextRun">
-                                <div className="NextRun">Your next run is in:
+                                <div className={styles.NextRun}>Your next run is in:
                                 </div>
                             </div>
                             <div> {nextRace?.country}</div>
                         </Card.Body>
                     </Card>
                 )
-                :
-                (
-                    <Container className={appStyles.Content}>
-                        <Asset spinner />
-                    </Container>
-                )
-
             }
         </>
     );
