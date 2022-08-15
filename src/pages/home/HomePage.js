@@ -23,6 +23,7 @@ function HomePage({ message, filter = "" }) {
         let answer = null
         for (let i = 0; i < allOptions.length; i++) {
             let option = allOptions[i];
+            
             let optionDate = new Date(option.date);
             if (now < optionDate) { // Check that this race has not already been run. 
                 if (answer == null) // Select this race if there is no currently selected race.

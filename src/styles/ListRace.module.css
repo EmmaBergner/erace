@@ -1,0 +1,35 @@
+.Race {
+    background-color: #ffffff;
+    border: 1px solid #dadadf;
+    border-radius: 2px;
+    margin-bottom: 16px;
+  }
+  
+  .Race figure,
+  h5 {
+    margin: 0 0;
+  }
+  
+  .Icon {
+    color: #f98f03;
+  }
+  
+  .Icon:hover {
+    color: #93040497;
+  }
+  
+  .IconOutline:hover {
+    color: #93040497;
+  }
+
+  .IconCol {
+    text-align: right;
+  }
+
+  .DateCol {
+    text-align: center;
+  }
+
+  .raceName {
+    font-size: 20px;
+  }

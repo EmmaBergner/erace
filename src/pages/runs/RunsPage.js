@@ -11,7 +11,7 @@ import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
-import Race from "../races/Race.js";
+import ListRace from "../races/ListRace.js";
 
 
 function RunsPage({ message, filter = "" }) {
@@ -51,7 +51,7 @@ function RunsPage({ message, filter = "" }) {
                             <InfiniteScroll
                                 children={
                                     races.results.map((race) => (
-                                        <Race key={race.id} {...race} setRaces={setRaces} />
+                                        <ListRace key={race.id} {...race} setRaces={setRaces} />
                                     ))
                                 }
                                 dataLength={races.results.length}

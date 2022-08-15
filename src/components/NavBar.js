@@ -33,11 +33,6 @@ const NavBar = () => {
           Races
         </NavLink>
      
-        <NavLink to="/liked"
-          className={({ isActive }) => styles.NavLink + (isActive ? " " + styles.Active : "")}>
-          <FontAwesomeIcon icon="fa-solid fa-star" />Liked
-        </NavLink>
-
         <NavLink to='/runs'
           className={({ isActive }) => styles.NavLink + (isActive ? " " + styles.Active : "")}>
           <Avatar src={currentUser?.profile_image} text="My Runs" height={40} />

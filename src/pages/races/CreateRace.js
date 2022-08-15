@@ -34,7 +34,7 @@ function CreateRace() {
       formData.append("distance", distance);
       formData.append("country", country);
       formData.append("website", website);
-      formData.append("owner", 1);
+      formData.append("owner", 1); // EB bug hårdkod
       console.log('---> handleSubmit formData', formData)
       await axiosReq.post('/races/', formData);
 

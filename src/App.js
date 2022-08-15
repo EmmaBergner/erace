@@ -8,11 +8,12 @@ import SignInForm from './pages/auth/SignInForm';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faPersonRunning, faStar, faEarthAmericas } from '@fortawesome/free-solid-svg-icons'
-import RacesPage from './pages/races/RacesPage';
+import RaceListPage from './pages/races/RaceListPage';
 import { Container } from 'react-bootstrap';
 import RaceCreateForm from './pages/races/CreateRace';
 import HomePage from './pages/home/HomePage';
 import RunsPage from './pages/runs/RunsPage';
+import RaceDetailPage from './pages/races/RaceDetailPage';
 library.add(faPersonRunning, faStar, faEarthAmericas)
 
 function App() {
@@ -25,16 +26,17 @@ function App() {
       <Container className={styles.Main}>
       <Routes>
         <Route exact path="/races"
-          element={<RacesPage
+          element={<RaceListPage
             message="No results found. Adjust the search keyword or follow a user."
             filter={""} />} />
 
         <Route exact path="/signup" element={<SignUpForm />} />
         <Route exact path="/signin" element={<SignInForm />} />
         <Route exact path="/" element={<HomePage />} />
-        <Route exact path="/races" element={<RacesPage />} />
+        <Route exact path="/races" element={<RaceListPage />} />
         <Route exact path="/races/create" element={<RaceCreateForm />} />
         <Route exact path="/runs" element={<RunsPage/>} />
+        <Route exact path="/races/:id" element={<RaceDetailPage/>} />
 
         <Route path="*" element={<p>Page not found</p>} />
       </Routes>

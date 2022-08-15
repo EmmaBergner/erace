@@ -6,17 +6,17 @@ import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 
 import appStyles from "../../App.module.css";
-import styles from "../../styles/RacesPage.module.css";
+import styles from "../../styles/RaceListPage.module.css";
 import { useLocation } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefault";
 import Asset from "../../components/Asset";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
-import Race from "./Race.js";
+import ListRace from "./ListRace.js";
 import { useNavigate } from "react-router-dom";
 
 
-function RacesPage({ message, filter = "" }) {
+function RaceListPage({ message, filter = "" }) {
 
     const [races, setRaces] = useState({ results: [] });
 
@@ -54,13 +54,16 @@ function RacesPage({ message, filter = "" }) {
     }
 
     const filterUpcoming = (allRaces) => {
-        
+        const now = new Date()
         const anwser = []
         for (let i = 0; i < allRaces.length; i++) {
             const race = allRaces[i];
 
-            anwser.push(race)
-        } 
+            let optionDate = new Date(race.date);
+            if (now < optionDate) {
+                anwser.push(race)
+            }
+        }
         return anwser
     }
 
@@ -72,13 +75,13 @@ function RacesPage({ message, filter = "" }) {
         return () => {
             clearTimeout(timer);
         };
-    }, [filter, query, pathname]);
+    }, [country]);
 
 
     useEffect(() => {
         setHasLoaded(false);
         fetchRaces();
-    }, [country, starOnly, upcoming]);
+    }, [starOnly, upcoming]);
 
     // EM Ta bort Row och Col om dom inte behövs.
     return (
@@ -107,7 +110,7 @@ function RacesPage({ message, filter = "" }) {
                                 <InfiniteScroll
                                     children={
                                         races.results.map((race) => (
-                                            <Race key={race.id} {...race} setRaces={setRaces} />
+                                            <ListRace key={race.id} {...race} setRaces={setRaces} />
                                         ))
                                     }
                                     dataLength={races.results.length}
@@ -131,4 +134,4 @@ function RacesPage({ message, filter = "" }) {
         </>);
 }
 
-export default RacesPage;
+export default RaceListPage;
