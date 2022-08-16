@@ -1,5 +1,5 @@
 .Race {
-    background-color: #ffffff;
+    background-color: var(--card);
     border: 1px solid #dadadf;
     border-radius: 2px;
     margin-bottom: 16px;

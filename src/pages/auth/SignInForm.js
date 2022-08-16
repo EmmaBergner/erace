@@ -44,16 +44,16 @@ function SignInForm() {
         <Container >
             <Row >
                 <Col sm> </Col>
-                <Col>
+                <Row>
                     <h1 className={styles.HeadText}>Where are you running next?</h1>
-                </Col>
+                </Row>
                 <Col sm> </Col>
             </Row>
             <Row>
                 <Col sm> </Col>
                 <Col>
                     <>
-                        <Container className={`${appStyles.Content} p-4`}>
+                        <Container>
                             <Row>
                                 <Col>
                                     {/* <h1 className={styles.Header}>sign in</h1> */}

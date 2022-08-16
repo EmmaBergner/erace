@@ -1,14 +1,18 @@
 :root {
-  --background: #0d91a0;
-  --text: #0eeeee;
-  --button: #049999;
+  --background: #f6f7f8;
+  --text: #2a1c0a;
+  --button: #c9bcac;
+  --button_hover: #d6d0ca;
   --border: #023455;
   --link: #098777;
+  --card: #fafcfd;
+  --input: #fafcfd;
+
 }
 
 .App {
   font-family: "DM Sans", sans-serif;
-  background-color: #ffffff;
+  background-color: var(--background);
   min-height: 100vh;
 }
 
@@ -17,7 +21,7 @@
 }
 
 .Content {
-  background-color: #ffffff;
+  background-color: var(--background);
   padding: 10px;
   border-radius: 2px;
   border: 1px solid #dadadf;

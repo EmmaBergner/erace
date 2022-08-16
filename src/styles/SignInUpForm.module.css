@@ -1,13 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300&family=Kaushan+Script&family=Mali:wght@200&display=swap');
+
 .Row {
   height: calc(100vh - 81px);
 }
 
 .Input {
-  background: #ffffff;
-  border: 1px solid #f0f1f9;
+  background: var(--input);
+  border: 1px solid var(--border);
   box-sizing: border-box;
   border-radius: 2px;
-  color: #7177a1;
+  color: var(--text);
   text-align: center;
   padding: 10px;
   margin-bottom: 1.5rem;
@@ -15,17 +17,23 @@
 
 .Header {
   font-style: normal;
-  font-weight: bold;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 19px;
   text-align: center;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: #2142b2;
+  letter-spacing: 0.1em;
+  color: var(--text);
+  text-decoration: none;
+  display: block;
+  margin: auto;
+  padding: 20px;
 }
 
 .HeadText {
   text-align: center;
+  color: var(--text);
+  font-size: 35px;
+  font-family: 'Kaushan Script', cursive;
+  padding-bottom: 45px;
 }
 
 .Link {
@@ -33,11 +41,11 @@
   text-align: center;
   display: block;
   margin: auto;
-  padding: 10px;
+  padding: 20px;
 }
 
 .Link span {
-  color: #ff9254;
+  color: var(--link);
 }
 
 .Container {
