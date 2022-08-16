@@ -32,7 +32,7 @@ const DetailRace = (props) => {
     return (
         <Card className={styles.Race}>
             <Card.Body >
-                <div className="media align-items-center justify-content-between"/> 
+                {/* <div className="media align-items-center justify-content-between"/>  */}
 
                 <div className="container">
                     <div className="row">
@@ -52,7 +52,7 @@ const DetailRace = (props) => {
                             {distance} k
                         </div>
                     </div>
-                </div>
+                
                 <div className="row">
                     <div className="CountryCol col">
                         {country}
@@ -62,7 +62,7 @@ const DetailRace = (props) => {
                     <div className="CountryCol col">
                         {website}
                     </div>
-
+                    </div>
                    
                     <div className="IconCol col">
                         {star_id ? (

@@ -7,14 +7,14 @@ import SignUpForm from './pages/auth/SignUpForm';
 import SignInForm from './pages/auth/SignInForm';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faPersonRunning, faStar, faEarthAmericas } from '@fortawesome/free-solid-svg-icons'
+import { faPersonRunning, faStar, faEarthAmericas, faImage } from '@fortawesome/free-solid-svg-icons'
 import RaceListPage from './pages/races/RaceListPage';
 import { Container } from 'react-bootstrap';
 import RaceCreateForm from './pages/races/CreateRace';
 import HomePage from './pages/home/HomePage';
 import RunsPage from './pages/runs/RunsPage';
 import RaceDetailPage from './pages/races/RaceDetailPage';
-library.add(faPersonRunning, faStar, faEarthAmericas)
+library.add(faPersonRunning, faStar, faEarthAmericas, faImage)
 
 function App() {
   const currentUser = useCurrentUser();

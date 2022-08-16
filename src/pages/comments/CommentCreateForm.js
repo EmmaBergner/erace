@@ -7,6 +7,7 @@ import styles from "../../styles/CommentCreateEditForm.module.css";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefault";
 import Image from 'react-bootstrap/Image'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function CommentCreateForm(props) {
   const { race, setRace, setComments, profileImage, profile_id } = props;
@@ -68,9 +69,8 @@ function CommentCreateForm(props) {
             rows={2}
           />
         </InputGroup>
-
         <Form.Label
-          htmlFor="image-upload"> Upload!
+          htmlFor="image-upload"> <FontAwesomeIcon icon="fa-regular fa-image" /> U! 
         </Form.Label>
         <Form.Control type="file" id="image-upload" accept="image/*" onChange={handleChangeImage} ref={imageInput} />
       </Form.Group>
