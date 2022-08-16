@@ -1,11 +1,19 @@
+:root {
+  --background: #0d91a0;
+  --text: #0eeeee;
+  --button: #049999;
+  --border: #023455;
+  --link: #098777;
+}
+
 .App {
   font-family: "DM Sans", sans-serif;
-  background-color: #f8f8f8;
+  background-color: #ffffff;
   min-height: 100vh;
 }
 
 .Main {
-  padding-top: 81px;
+  padding-top: 180px;
 }
 
 .Content {

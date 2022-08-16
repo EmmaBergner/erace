@@ -24,11 +24,16 @@
   color: #2142b2;
 }
 
+.HeadText {
+  text-align: center;
+}
+
 .Link {
   text-decoration: none;
   text-align: center;
   display: block;
   margin: auto;
+  padding: 10px;
 }
 
 .Link span {

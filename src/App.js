@@ -24,22 +24,22 @@ function App() {
     <div className={styles.App}>
       <NavBar />
       <Container className={styles.Main}>
-      <Routes>
-        <Route exact path="/races"
-          element={<RaceListPage
-            message="No results found. Adjust the search keyword or follow a user."
-            filter={""} />} />
+        <Routes>
+          <Route exact path="/races"
+            element={<RaceListPage
+              message="No results found. Adjust the search keyword or follow a user."
+              filter={""} />} />
 
-        <Route exact path="/signup" element={<SignUpForm />} />
-        <Route exact path="/signin" element={<SignInForm />} />
-        <Route exact path="/" element={<HomePage />} />
-        <Route exact path="/races" element={<RaceListPage />} />
-        <Route exact path="/races/create" element={<RaceCreateForm />} />
-        <Route exact path="/runs" element={<RunsPage/>} />
-        <Route exact path="/races/:id" element={<RaceDetailPage/>} />
+          <Route exact path="/signup" element={<SignUpForm />} />
+          <Route exact path="/signin" element={<SignInForm />} />
+          <Route exact path="/" element={<HomePage />} />
+          <Route exact path="/races" element={<RaceListPage />} />
+          <Route exact path="/races/create" element={<RaceCreateForm />} />
+          <Route exact path="/runs" element={<RunsPage />} />
+          <Route exact path="/races/:id" element={<RaceDetailPage />} />
 
-        <Route path="*" element={<p>Page not found</p>} />
-      </Routes>
+          <Route path="*" element={<p>Page not found</p>} />
+        </Routes>
       </Container>
     </div>
   );
