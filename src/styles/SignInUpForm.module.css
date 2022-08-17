@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300&family=Kaushan+Script&family=Mali:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300&family=Kaushan+Script&family=Mali:wght@200&family=Roboto:wght@100&display=swap');
 
 .Row {
   height: calc(100vh - 81px);
@@ -32,7 +32,7 @@
   text-align: center;
   color: var(--text);
   font-size: 35px;
-  font-family: 'Kaushan Script', cursive;
+  font-family: 'Mali', cursive;
   padding-bottom: 45px;
 }
 

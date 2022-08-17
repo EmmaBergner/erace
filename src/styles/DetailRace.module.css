@@ -1,35 +1,66 @@
 .Race {
-    background-color: var(--background);
-    border: 1px solid #dadadf;
-    border-radius: 2px;
-    margin-bottom: 16px;
-  }
-  
-  .Race figure,
-  h5 {
-    margin: 0 0;
-  }
-  
-  .Icon {
-    color: #f98f03;
-  }
-  
-  .Icon:hover {
-    color: #93040497;
-  }
-  
-  .IconOutline:hover {
-    color: #93040497;
-  }
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  margin-bottom: 16px;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  /* font-family: 'Roboto', sans-serif; */
+  color: var(--text);
 
-  .IconCol {
-    text-align: right;
-  }
+}
 
-  .DateCol {
-    text-align: center;
-  }
+.Race figure,
+h5 {
+  margin: 0 0;
+}
+.heartIcon {
+  color: #f4dc46;
+  font-size: 14px;
+}
+.heartIconOutline {
+  color: #f4dc46;
+  font-size: 14px;
+}
+.heartIcon:hover {
+  color: #f59c37;
+}
+.heartIconOutline:hover {
+  color: #f59c37;
+}
 
-  .raceName {
-    font-size: 20px;
-  }
+
+.Icon {
+  color: #f4dc46;
+
+}
+.IconOutline {
+  color: #f4dc46;
+}
+.Icon:hover {
+  color: #f59c37;
+}
+.IconOutline:hover {
+  color: #f59c37;
+}
+
+.raceName {
+  color: var(--link);
+}
+
+.raceCountry {
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+.createdDate {
+  font-size: 10px;
+}
+
+.smallStar {
+  font-size: 29px;
+}
+
+.websiteLink {
+  color: var(--link)
+}

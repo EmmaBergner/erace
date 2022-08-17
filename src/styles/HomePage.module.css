@@ -1,8 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300&family=Kaushan+Script&family=Mali:wght@200&family=Roboto:wght@100&display=swap');
+
+.HomePage {
+    font-size: 80px;
+    font-family: 'Mali', cursive;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.05em;
+    background-color: var(--background);
+}
+
+.Welcome {
+    align-items: center;
+    font-size: 16px;
+    color: var(--text);
+}
+
+.Label {
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    color: var(--text);
+}
+
+
+@media screen and (max-width: 480px) {
+    .HomePage {
+        font-size: 40px;
+        letter-spacing: 0.0em;
+    }
+    .Label {
+        font-size: 10px;
+    }
+}
 
 .NextRun {
-    font-size: 60px;
-    color: gray;
+    text-align: center;
+    color: var(--text);
+    font-size: 35px;
+    font-family: 'Mali', cursive;
+    padding-top: 50px;
 
 }
 
-  
+.Country {
+    font-size: 45px;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: var(--text)
+}
+

@@ -83,29 +83,36 @@ function HomePage({ message, filter = "" }) {
                 :
                 nextRace == null ?
                 (
-                <div> Welcome to my site</div>
+                <div className={styles.Welcome}>Where are you running next?
+
+                <p> Go to “Races” to add your upcoming race or races. Search for a race based on country to see if 
+                it's already in the database. If not, you can add it.</p>
+                
+                <p>Mark races you are interested in and want to find easily by clicking the star icon. </p> 
+                
+                Attend a race, and it will appear under "My runs" so that you can easily keep track of your upcoming races. </div>
                 )
                 :
                 ( 
-                    <Card className={styles.HomePage}>
+                    <div className={styles.HomePage}>
                         <Card.Body>
-                            <div className="container">
+                            <div>
                                 <div className="row">
                                     <div className="NameCol col" >
                                         {Math.floor(timeLeftSeconds / (60 * 60 * 24))}
-                                        <p>Days</p>
+                                        <p className={styles.Label}>Days</p>
                                     </div>
                                     <div className="NameCol col" >
-                                        {Math.floor(timeLeftSeconds % (60 * 60 * 24) / (60 * 60))}.
-                                        <p>Hours</p>
+                                        {Math.floor(timeLeftSeconds % (60 * 60 * 24) / (60 * 60))}
+                                        <p className={styles.Label}>Hours</p>
                                     </div>
                                     <div className="NameCol col" >
-                                        {Math.floor(timeLeftSeconds % (60 * 60) / 60)}.
-                                        <p>Minutes</p>
+                                        {Math.floor(timeLeftSeconds % (60 * 60) / 60)}
+                                        <p className={styles.Label}>Minutes</p>
                                     </div>
                                     <div className="NameCol col" >
-                                        {Math.floor(timeLeftSeconds % 60)}.
-                                        <p>Seconds</p>
+                                        {Math.floor(timeLeftSeconds % 60)}
+                                        <p className={styles.Label}>Seconds</p>
                                     </div>
                                 </div>
                             </div>
@@ -113,9 +120,9 @@ function HomePage({ message, filter = "" }) {
                                 <div className={styles.NextRun}>Your next run is in:
                                 </div>
                             </div>
-                            <div> {nextRace?.country}</div>
+                            <div className={styles.Country}>{nextRace?.country}</div>
                         </Card.Body>
-                    </Card>
+                    </div>
                 )
             }
         </>

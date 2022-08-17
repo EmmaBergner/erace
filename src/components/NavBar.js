@@ -24,54 +24,62 @@ const NavBar = () => {
     }
   }
 
+  const loggedInIcons =
+    <>
 
-  const loggedInIcons = <>
+      <NavLink to="/"
+        className={({ isActive }) => styles.NavLink + (isActive ? " " + styles.Active : "")}>
+        <FontAwesomeIcon icon="fa-solid fa-person-running" />Next
+      </NavLink>
 
-    <NavLink to="/races"
-      className={({ isActive }) => styles.NavLink + (isActive ? " " + styles.Active : "")} >
-      <FontAwesomeIcon icon="fa-solid fa-earth-americas" />
-      Races
-    </NavLink>
+      <NavLink to="/races"
+        className={({ isActive }) => styles.NavLink + (isActive ? " " + styles.Active : "")} >
+        <FontAwesomeIcon icon="fa-solid fa-earth-americas" />
+        Races
+      </NavLink>
 
-    <NavLink to='/runs'
-      className={({ isActive }) => styles.NavLink + (isActive ? " " + styles.Active : "")}>
-      <Avatar src={currentUser?.profile_image} text="My Runs" height={40} />
-    </NavLink>
+      <NavLink to="/races/create"
+        className={({ isActive }) => styles.NavLink + (isActive ? " " + styles.Active : "")} >
+        <FontAwesomeIcon icon="fa-solid fa-earth-americas" />
+        AddRaces
+      </NavLink>
 
-    <NavLink to="/signin"
-      className={({ isActive }) => styles.NavLink + (isActive ? " " + styles.Active : "")}
-      onClick={handleSignOut}>
-      <i className="fas fa-sign-out-alt"></i>
-    </NavLink>
-  </>
+      <NavLink to='/runs'
+        className={({ isActive }) => styles.NavLink + (isActive ? " " + styles.Active : "")}>
+        <Avatar src={currentUser?.profile_image} text="My Runs" height={40} />
+      </NavLink>
+
+      <NavLink to="/signin"
+        className={({ isActive }) => styles.NavLink + (isActive ? " " + styles.Active : "")}
+        onClick={handleSignOut}>
+        <i className="fas fa-sign-out-alt"></i>
+      </NavLink>
+    </>
 
   return (
     <>
-      { currentUser ? 
-          <Navbar expanded={expanded} className={styles.NavBar
-          } expand="md" fixed='top' >
-            <Container>
-              <NavLink to="/">
-              </NavLink>
-              <Navbar.Toggle ref={ref}
-                onClick={() => setExpanded(!expanded)}
-                aria-controls="basic-navbar-nav" />
-              <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="mr-auto text-left">
-                  <NavLink to="/"
-                    className={({ isActive }) => styles.NavLink + (isActive ? " " + styles.Active : "")}>
-                    <FontAwesomeIcon icon="fa-solid fa-person-running" />Next
-                  </NavLink>
-                  {loggedInIcons}
-                </Nav>
-              </Navbar.Collapse>
-            </Container>
-          </Navbar >
-          :
-          <div /> 
+      {currentUser ?
+        <Navbar expanded={expanded} className={styles.NavBar} expand="md" fixed='top' >
+          <Container>
+            <NavLink to="/">
+            </NavLink>
+            <Navbar.Toggle ref={ref}
+              onClick={() => setExpanded(!expanded)}
+              aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav">
+              <Nav className="mr-auto text-left">
+
+
+                {loggedInIcons}
+              </Nav>
+            </Navbar.Collapse>
+          </Container>
+        </Navbar >
+        :
+        <div />
       }
     </>
-    )
+  )
 };
 
 export default NavBar;

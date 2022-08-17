@@ -4,7 +4,7 @@ import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
-
+import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 import styles from "../../styles/RaceListPage.module.css";
 import { useLocation } from "react-router-dom";
@@ -14,6 +14,8 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import ListRace from "./ListRace.js";
 import { useNavigate } from "react-router-dom";
+import { Button } from "react-bootstrap";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 function RaceListPage({ message, filter = "" }) {
@@ -33,11 +35,6 @@ function RaceListPage({ message, filter = "" }) {
     const [upcoming, setUpcoming] = useState(false)
 
     const navigate = useNavigate();
-
-    const handleCreate = () => {
-        navigate(`/races/create`)
-    }
-
 
     const fetchRaces = async () => {
         try {
@@ -83,27 +80,30 @@ function RaceListPage({ message, filter = "" }) {
         fetchRaces();
     }, [starOnly, upcoming]);
 
-    // EM Ta bort Row och Col om dom inte behövs.
     return (
-        <> <button
-            className={styles.Button}
-            onClick={() => handleCreate()}
-            type="button"
-        >
-            Add race
-        </button>
-
+        <>
+            <Form className={styles.SearchBar} onSubmit={(event) => event.preventDefault()}>
+                <Container>
+                    <Row className="h-100">
+                    
+                        <Col md={4} xs={12}> 
+                            <Form.Control type="text" value={country} onChange={(event) => setCountry(event.target.value)} placeholder="Type country" />
+                        </Col>
+                        <Col md={2} xs={6}>
+                            <Form.Check type="checkbox" value={starOnly} onChange={(event) => setStarOnly(!starOnly)} label="Liked Races" />
+                        </Col>
+                        <Col md={2} xs={6}>
+                            <Form.Check type="checkbox" value={upcoming} onChange={(event) => setUpcoming(!upcoming)} label="Upcoming Races" />
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col md={8}> <hr></hr></Col></Row>
+                </Container>
+            </Form>
+           
             <Row className="h-100">
-                <Col className="py-2 p-0 p-lg-2" lg={8}>
-                    <i className={`fas fa-search ${styles.SearchIcon}`} />
-
-                    <Form className={styles.SearchBar} onSubmit={(event) => event.preventDefault()}>
-                        <Form.Control type="text" value={country} onChange={(event) => setCountry(event.target.value)} className="mr-sm-2" placeholder="Search country" />
-                        <Form.Check type="checkbox" value={starOnly} onChange={(event) => setStarOnly(!starOnly)} className="mr-sm-2" label="Liked" />
-                        <Form.Check type="checkbox" value={upcoming} onChange={(event) => setUpcoming(!upcoming)} className="mr-sm-2" label="Upcoming" />
-                    </Form>
-
-
+                <Col md={8}>
+                    {/* <i className={`fas fa-search ${styles.SearchIcon}`} /> */}
                     {hasLoaded ? (
                         <>
                             {races.results.length ? (
@@ -131,7 +131,10 @@ function RaceListPage({ message, filter = "" }) {
                     )}
                 </Col>
             </Row>
-        </>);
+
+        </>
+
+    );
 }
 
 export default RaceListPage;

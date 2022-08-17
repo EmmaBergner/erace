@@ -3,10 +3,11 @@
   --text: #2a1c0a;
   --button: #c9bcac;
   --button_hover: #d6d0ca;
-  --border: #023455;
+  --border: #d6d0ca;
   --link: #098777;
   --card: #fafcfd;
   --input: #fafcfd;
+  --icon: #098777;
 
 }
 
@@ -17,7 +18,7 @@
 }
 
 .Main {
-  padding-top: 180px;
+  padding-top: 100px;
 }
 
 .Content {

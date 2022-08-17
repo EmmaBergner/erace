@@ -1,6 +1,6 @@
 .NavBar {
     background-color: var(--background);
-    border: 1px solid grey;
+    border: 1px solid var(--text);
 }
 
 .NavLink {
@@ -8,11 +8,11 @@
 }
 
 .Active{
-    color: rgba(108, 108, 210, 0.877)
+    color: var(--text)
 }
 
 svg {
-    color: #cfced3;
+    color: var(--button);
     font-size: 1.6rem;
     padding: 7px;
     vertical-align: middle !important;
@@ -21,6 +21,6 @@ svg {
 svg:hover {
     cursor: pointer;
     transition: color ease-in-out 0.3s;
-    color: #1a1b1d;
+    color: var(--button_hover);
   }
   

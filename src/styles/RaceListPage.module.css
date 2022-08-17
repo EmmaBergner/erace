@@ -1,18 +1,33 @@
 .SearchBar input {
-    border-radius: 20px;
-    color: #242a3d;
+    border-radius: 2px;
+    color: var(--text);
     padding-left: 40px;
     margin-bottom: 16px;
   }
   
   .SearchIcon {
     position: absolute;
-    font-size: 1.2rem;
+    font-size: 0.8rem;
     padding: 9px;
     padding-left: 15px;
+
   }
   
   .SearchIcon:hover {
     cursor: default;
     color: #cfced3;
+  }
+
+  .Button {
+    align-items: center;
+  }
+
+  .AddRace {
+    border-radius: 2px;
+  }
+
+  .AddIcon {
+    font-size: 8px;
+    border-radius: 2px;
+    border: 1px solid var(--border);
   }
