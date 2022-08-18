@@ -6,8 +6,9 @@ import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import { useNavigate } from "react-router-dom";
 import { axiosRes } from '../../api/axiosDefault';
 import React, { useState } from "react";
-import { Button, Card } from "react-bootstrap";
-
+import { Button } from "react-bootstrap";
+import { Card, Col, Container, Row, } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Comment = (props) => {
 
@@ -39,29 +40,35 @@ const Comment = (props) => {
 
 
     return (
-        <div>
-            <hr />
 
-            <div className='media'>
 
-                {/* <Link to={`/profiles/${profile_id}`}>
-                    <Avatar src={profile_image} height={30} />
-                </Link> */}
 
-                <div className="media-body align-self-center ml-2">
-                    <span className={styles.Owner}>{owner_username}</span>
-                    <span className={styles.Date}>{updated_at}</span>
-                    <p>{text}</p>
-                </div>
-                {console.log("image", image)}
-                <Card>
-                    <Card.Img src={image} />
-                </Card>
+        <Card className={styles.Comment}>
+            <Card.Body>
+                <Container>
+                    <Row>
+                        <Col>
+                            <Card.Img src={image} />
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col className={styles.Text}>
+                            <p>{text}</p>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col className={styles.Credit}> 
+                        Posted by {owner_username} at {updated_at}
+                        </Col>
+                        <Col xs={1} onClick={handleDelete} className={styles.Trash}>
+                            <FontAwesomeIcon icon="fa-regular fa-trash-can" size="1x" />
 
-                <Button onClick={handleDelete}>Delete</Button>
-            </div>
+                        </Col>
+                    </Row>
+                </Container>
+            </Card.Body>
+        </Card>
 
-        </div>
 
     )
 }

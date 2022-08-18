@@ -54,16 +54,14 @@ const ListRace = (props) => {
                                 </Col>
                             </Row>
                         </Col>
+
                         <Col xs={1} className={styles.raceStar}>
                             {star_id ? (
                                 <span onClick={handleUnstar}>
-
                                     <FontAwesomeIcon icon="star" className={styles.Icon} />
-                                    {/* <FontAwesomeIcon icon={["star,"]} className={styles.Icon} /> */}
                                 </span>
                             ) : (
                                 <span onClick={handleStar}>
-                                    {/* <FontAwesomeIcon icon="star" /> */}
                                     <FontAwesomeIcon icon={["far", "star"]} className={styles.IconOutline} />
                                 </span>)}
                         </Col>

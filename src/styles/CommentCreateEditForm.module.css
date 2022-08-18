@@ -1,13 +1,16 @@
 .Form {
     border: none;
-    border-bottom: 2px #00d1ff solid;
+    border-bottom: 1px #a1a5a6 solid;
+    background-color: var(--input);
+  
   }
   
-  .Button {
+  /* .Button {
     border: none;
-    background-color: #242a3d;
-    color: aliceblue;
+    background-color: var(--button);
+    color: var(--text);
     border-radius: 100px;
+    border: var(--border);
     padding: 4px 10px;
     min-width: 75px;
     margin: 5px;
@@ -15,6 +18,18 @@
   
   .Button:hover {
     cursor: pointer;
-    background-color: aliceblue;
-    color: #242a3d;
+    background-color: var(--button_hovor);
+    color: var(--text);
+    border: var(--border);
+  } */
+
+  .addImage {
+    font-size: 10px;
+    text-align: center;
+  }
+
+  .addInsp {
+    font-size: 16px;
+    text-align: left;
+    padding-bottom: 20px;
   }

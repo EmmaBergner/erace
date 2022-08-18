@@ -13,6 +13,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
 import DetailRace from "./DetailRace";
+import styles from "../../styles/RaceDetailPage.module.css";
 
 function RaceDetailPage() {
 
@@ -43,8 +44,8 @@ function RaceDetailPage() {
     return (
         <Row className="h-100">
             <Col className="py-2 p-0 p-lg-2" lg={8}>
-                <DetailRace {...race} />
-                <Container className={appStyles.Content}>
+                <DetailRace {...race} setRace={setRace}/>
+                <Container>
                     {currentUser ? (
                         <CommentCreateForm
                             profile_id={currentUser.profile_id}

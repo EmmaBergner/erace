@@ -31,7 +31,7 @@ h5 {
 
 
 .Icon {
-  color: #f4dc46;
+  color: var(--text);
 
 }
 .IconOutline {
@@ -53,8 +53,9 @@ h5 {
   text-transform: uppercase;
 }
 
-.createdDate {
-  font-size: 10px;
+.creadit {
+  font-size: 12px;
+  color: var(--credit);
 }
 
 .smallStar {
@@ -63,4 +64,11 @@ h5 {
 
 .websiteLink {
   color: var(--link)
+}
+
+.attend {
+  font-size: 10px;
+  /* border: 2px solid var(--border); */
+  width: 100%;
+  text-align: center;
 }

@@ -63,3 +63,6 @@ export const handleActivate = async (path, idProp, id, setRaces, currentUser) =>
         console.log(err);
     }
 };
+
+
+
