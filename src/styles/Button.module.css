@@ -7,6 +7,8 @@
     margin-left: 2px;
     margin-right: 2px;
     min-width: 75px;
+    background-color: var(--button);
+    color: var(--text);
   }
   
 
@@ -15,12 +17,7 @@
     width: 100%;
   }
 
-  .Bright:hover {
+  .Button:hover {
     background-color: var(--button_hover);
-    color: var(--text);
   }
   
-  .Bright {
-    background-color: var(--button);
-    color: var(--text);
-  }

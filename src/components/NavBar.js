@@ -40,19 +40,19 @@ const NavBar = () => {
 
       <NavLink to="/races/create"
         className={({ isActive }) => styles.NavLink + (isActive ? " " + styles.Active : "")} >
-        <FontAwesomeIcon icon="fa-solid fa-earth-americas" />
-        AddRaces
+        <FontAwesomeIcon icon="fa-solid fa-plus" />
+        Add Race
       </NavLink>
 
       <NavLink to='/runs'
         className={({ isActive }) => styles.NavLink + (isActive ? " " + styles.Active : "")}>
-        <Avatar src={currentUser?.profile_image} text="My Runs" height={40} />
+        <FontAwesomeIcon icon="fa-solid fa-person-running" />Runs
       </NavLink>
 
       <NavLink to="/signin"
         className={({ isActive }) => styles.NavLink + (isActive ? " " + styles.Active : "")}
         onClick={handleSignOut}>
-        <i className="fas fa-sign-out-alt"></i>
+       <FontAwesomeIcon icon="fa-solid fa-right-from-bracket" />
       </NavLink>
     </>
 

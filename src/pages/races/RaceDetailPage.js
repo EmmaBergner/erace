@@ -42,43 +42,56 @@ function RaceDetailPage() {
     }, [id]);
 
     return (
-        <Row className="h-100">
-            <Col className="py-2 p-0 p-lg-2" lg={8}>
-                <DetailRace {...race} setRace={setRace}/>
-                <Container>
-                    {currentUser ? (
-                        <CommentCreateForm
-                            profile_id={currentUser.profile_id}
-                            profileImage={profile_image}
-                            race={race}
-                            setRace={setRace}
-                            setComments={setComments}
-                        />
-                    ) : comments.results.length ? (
-                        "comments"
-                    ) : ""}
+        <>
 
-                    {comments.results.length ? (
-                        <InfiniteScroll
-                            children={
-                                comments.results.map(comment => (
-                                    <Comment key={comment.id} {...comment} setComments={setComments} />
-                                ))
-                            }
-                            dataLength={comments.results.length}
-                            loader={<Asset spinner />}
-                            hasMore={!!comments.next}
-                            next={() => fetchMoreData(comments, setComments)}
-                        />
-                    ) : currentUser ? (
-                        <span>No comments yet, be the first to comment!</span>
-                    ) : (
-                        <span> No comments...yet</span>
-                    )}
-                </Container>
-            </Col>
 
-        </Row>
+            <Row className="h-100">
+
+                <Col lg={8}>
+                    <Container className={styles.Content}>
+                        <Row className="h-100">
+                            <Col></Col>
+                            <Col>
+                                <Container className={styles.Content}>
+                                    <DetailRace  {...race} setRace={setRace} />
+                                </Container>
+                            </Col>
+                            <Col></Col>
+                        </Row>
+                        {currentUser ? (
+                            <CommentCreateForm
+                                profile_id={currentUser.profile_id}
+                                profileImage={profile_image}
+                                race={race}
+                                setRace={setRace}
+                                setComments={setComments}
+                            />
+                        ) : comments.results.length ? (
+                            "comments"
+                        ) : ""}
+
+                        {comments.results.length ? (
+                            <InfiniteScroll
+                                children={
+                                    comments.results.map(comment => (
+                                        <Comment key={comment.id} {...comment} setComments={setComments} />
+                                    ))
+                                }
+                                dataLength={comments.results.length}
+                                loader={<Asset spinner />}
+                                hasMore={!!comments.next}
+                                next={() => fetchMoreData(comments, setComments)}
+                            />
+                        ) : currentUser ? (
+                            <span>No comments yet, be the first to comment!</span>
+                        ) : (
+                            <span> No comments...yet</span>
+                        )}
+                    </Container>
+                </Col>
+
+            </Row>
+        </>
     );
 }
 

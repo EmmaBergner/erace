@@ -17,7 +17,6 @@
 
 .Label {
     font-size: 14px;
-    font-family: 'Roboto', sans-serif;
     color: var(--text);
 }
 
@@ -43,7 +42,6 @@
 
 .Country {
     font-size: 45px;
-    font-family: 'Roboto', sans-serif;
     text-align: center;
     text-transform: uppercase;
     font-weight: bold;

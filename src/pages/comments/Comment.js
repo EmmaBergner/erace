@@ -40,9 +40,6 @@ const Comment = (props) => {
 
 
     return (
-
-
-
         <Card className={styles.Comment}>
             <Card.Body>
                 <Container>
@@ -60,7 +57,7 @@ const Comment = (props) => {
                         <Col className={styles.Credit}> 
                         Posted by {owner_username} at {updated_at}
                         </Col>
-                        <Col xs={1} onClick={handleDelete} className={styles.Trash}>
+                        <Col xs={2} onClick={handleDelete} className={styles.Trash}>
                             <FontAwesomeIcon icon="fa-regular fa-trash-can" size="1x" />
 
                         </Col>

@@ -4,13 +4,13 @@ import styles from "../../styles/DetailRace.module.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { axiosRes } from '../../api/axiosDefault';
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 
 const DetailRace = (props) => {
     const {
-        id, star_id, run_id, owner, name, distance, country, date, website, owner_username, created_at, updated_at, like_id, setRace, 
+        id, star_id, run_id, owner, name, distance, country, date, website, owner_username, created_at, updated_at, like_id, setRace,
     } = props;
 
     console.log(id, star_id, run_id, owner, name, distance, country, date,)
@@ -67,44 +67,48 @@ const DetailRace = (props) => {
                                     </span>
                                     {star_id ? (
                                         <span onClick={handleUnstar}>
-                                            <FontAwesomeIcon icon="star" className={styles.Icon} />
+                                            <FontAwesomeIcon icon="star" className={styles.StarIcon} />
                                         </span>
                                     ) : (
                                         <span onClick={handleStar}>
-                                            <FontAwesomeIcon icon={["far", "star"]} className={styles.IconOutline} />
+                                            <FontAwesomeIcon icon={["far", "star"]} className={styles.StarIconOutline} />
                                         </span>)}
                                 </Col>
                             </Row>
 
                             <Row>
-                                <Col xs={4} sm={3}> Country: </Col>
+                                <Col xs={4} sm={4}> Country: </Col>
                                 <Col> {country} </Col>
                             </Row>
                             <Row>
-                                <Col xs={4} sm={3}> Distance: </Col>
+                                <Col xs={4} sm={4}> Distance: </Col>
                                 <Col> {distance} k </Col>
                             </Row>
 
                             <Row>
-                                <Col xs={4} sm={3}> Date:  </Col>
+                                <Col xs={4} sm={4}> Date:  </Col>
                                 <Col>
                                     {new Date(date).toDateString()}
                                 </Col>
                             </Row>
 
                             <Row>
-                                <Col xs={4} sm={3}> Time:  </Col>
+                                <Col xs={4} sm={4}> Time:  </Col>
                                 <Col>
                                     {new Date(date).toLocaleTimeString()}
                                 </Col>
                             </Row>
 
                             <Row>
-                                <Col xs={4} sm={3} > Website: </Col>
-                                <Col className={styles.websiteLink}> {website} </Col>
+                                <Col xs={4} sm={4} > Website: </Col>
+                                <Col className={styles.websiteLink}>
+                                    {website ?
+                                            (<a href={"//" + website} target="_blank" > {website} </a>) : ("")}
+                                    
+                                </Col>
                             </Row>
                             <span className={styles.creadit}> Posted by {owner_username} at {updated_at}</span>
-                           
+
                         </Col>
                     </Row>
                     <Row>
@@ -113,17 +117,16 @@ const DetailRace = (props) => {
                             {run_id ? (
                                 <span onClick={handleUnrun}>
                                     <FontAwesomeIcon icon="fa-solid fa-person-running" className={styles.Icon} />
-                                    YOU ARE RUNNING!!!!
-                                </span>
+                                 
+                                </span> 
                             ) : (
                                 <span onClick={handleRun}>
                                     <FontAwesomeIcon icon="fa-solid fa-person-running" className={styles.Icon} />
-                                    (you are not running this race)
+                                    <Col xs={12} className={styles.AttendText}> You are running!! </Col>
                                 </span>)}
-                            {/* <div className={styles.attend}>Attend race</div> */}
+                              
                         </Col>
                     </Row>
-
                 </Container>
             </Card.Body >
         </Card >

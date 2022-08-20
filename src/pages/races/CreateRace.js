@@ -1,5 +1,5 @@
-import React, {useState } from "react";
-import { Form, Button, Col, Container, Alert } from "react-bootstrap";
+import React, { useState } from "react";
+import { Form, Button, Col, Container, Alert, Card, Row } from "react-bootstrap";
 import styles from "../../styles/CreateRace.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
@@ -25,7 +25,7 @@ function CreateRace() {
   };
 
   const handleSubmit = async (event) => {
-    console.log('---> handleSubmit name , date, distance, country, website):', name , date + "T" + time, distance, country, website)
+    console.log('---> handleSubmit name , date, distance, country, website):', name, date + "T" + time, distance, country, website)
     event.preventDefault();
     try {
       const formData = new FormData();
@@ -38,7 +38,7 @@ function CreateRace() {
       console.log('---> handleSubmit formData', formData)
       await axiosReq.post('/races/', formData);
 
-    console.log('---> navigate to races')
+      console.log('---> navigate to races')
       navigate("/races")
     } catch (err) {
       console.log('---> handleSubmit error', err)
@@ -49,15 +49,16 @@ function CreateRace() {
   }
 
   const textFields = (
+
     <div className="text-center">
       <Form.Group controlId="name">
-        <Form.Label>Name:</Form.Label>
+        <Form.Label>Race name:</Form.Label>
         <Form.Control className={styles.Input}
           type="text"
           name="name"
           value={name}
           onChange={handleChange}
-          // placeholder="Stockholm Halfmarathon"
+        // placeholder="Stockholm Halfmarathon"
         />
         <Form.Label>Country:</Form.Label>
         <Form.Control className={styles.Input}
@@ -65,16 +66,16 @@ function CreateRace() {
           name="country"
           value={country}
           onChange={handleChange}
-          // placeholder="Sweden"
+        // placeholder="Sweden"
         />
         <Form.Label>Date:</Form.Label>
         <Form.Control className={styles.Input}
-          type="date" 
+          type="date"
           name="date"
           value={date}
           onChange={handleChange}
         />
-         <Form.Label>Time:</Form.Label>
+        <Form.Label>Time:</Form.Label>
         <Form.Control className={styles.Input}
           type="time"
           name="time"
@@ -87,7 +88,7 @@ function CreateRace() {
           name="distance"
           value={distance}
           onChange={handleChange}
-          // placeholder="21.1 K"
+        // placeholder="21.1 K"
         />
         <Form.Label>Official website:</Form.Label>
         <Form.Control className={styles.Input}
@@ -95,8 +96,8 @@ function CreateRace() {
           name="website"
           value={website}
           onChange={handleChange}
-          // placeholder="www.stockholmhalvmarathon.se/"
-          
+        // placeholder="www.stockholmhalvmarathon.se/"
+
         />
       </Form.Group>
       {errors.name?.map((message, idx) =>
@@ -109,16 +110,26 @@ function CreateRace() {
         Create
       </Button>
     </div>
+
   );
 
   return (
+
     <Form onSubmit={handleSubmit}>
-      <div className="d-md-none">{textFields}</div>
+      <Row>
+      <Col  md={4}>
+          Please enter details about your race!
 
-      <Col md={5} lg={4} className="d-none d-md-block p-0 p-md-1 center">
-        <Container className={appStyles.Content}>{textFields}</Container>
-      </Col>
+          Before adding your race, go to Races and to see if it's not added already.All feilds are requierd...
+        </Col>
+        <Col md={5} lg={4}>
+          <Container>{textFields}
 
+          </Container>
+        </Col>
+
+       
+      </Row>
     </Form>
   );
 }

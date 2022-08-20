@@ -3,10 +3,11 @@
   border: 1px solid var(--border);
   border-radius: 2px;
   margin-bottom: 16px;
-  font-size: 16px;
+  font-size: 14px;
   letter-spacing: 0.5px;
-  /* font-family: 'Roboto', sans-serif; */
   color: var(--text);
+  width: 320px;
+  
 
 }
 
@@ -14,18 +15,18 @@
 h5 {
   margin: 0 0;
 }
-.heartIcon {
+.StarIcon {
   color: #f4dc46;
   font-size: 14px;
 }
-.heartIconOutline {
+.StarIconOutline {
   color: #f4dc46;
   font-size: 14px;
 }
-.heartIcon:hover {
+.StarIcon:hover {
   color: #f59c37;
 }
-.heartIconOutline:hover {
+.StarIconOutline:hover {
   color: #f59c37;
 }
 
@@ -46,6 +47,7 @@ h5 {
 
 .raceName {
   color: var(--link);
+  font-size: 20px;
 }
 
 .raceCountry {
@@ -71,4 +73,8 @@ h5 {
   /* border: 2px solid var(--border); */
   width: 100%;
   text-align: center;
+}
+
+.AttendText {
+  font-size: 10px;
 }

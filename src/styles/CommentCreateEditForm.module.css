@@ -5,31 +5,20 @@
   
   }
   
-  /* .Button {
-    border: none;
-    background-color: var(--button);
-    color: var(--text);
-    border-radius: 100px;
-    border: var(--border);
-    padding: 4px 10px;
-    min-width: 75px;
-    margin: 5px;
-  }
-  
-  .Button:hover {
-    cursor: pointer;
-    background-color: var(--button_hovor);
-    color: var(--text);
-    border: var(--border);
-  } */
-
   .addImage {
     font-size: 10px;
     text-align: center;
   }
 
   .addInsp {
-    font-size: 16px;
+    font-size: 12px;
     text-align: left;
     padding-bottom: 20px;
+
+    
   }
+
+.PostButton {
+  margin: 5px;
+  
+}
