@@ -24,6 +24,7 @@ const ListRace = (props) => {
     const handleStar = async () => handleActivate('/stars/', 'star_id', id, setRaces, currentUser);
     const handleUnstar = async () => handleDeactivate('/stars/', 'star_id', star_id, id, setRaces);
 
+    const regionNames = new Intl.DisplayNames(['en'], {type: 'region'});
 
     return (
         <Card className={styles.Race}>
@@ -50,7 +51,7 @@ const ListRace = (props) => {
 
                             <Row>
                                 <Col className={styles.raceCountry}>
-                                    {country}
+                                {country ? regionNames.of(country.toUpperCase()) : ""} 
                                 </Col>
                             </Row>
                         </Col>

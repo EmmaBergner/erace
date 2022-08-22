@@ -54,11 +54,15 @@ const DetailRace = (props) => {
         }
     };
 
+    const regionNames = new Intl.DisplayNames(['en'], {type: 'region'});
+
+
     return (
         <Card className={styles.Race}>
             <Card.Body >
                 <Container>
                     <Row>
+                        
                         <Col>
                             <Row>
                                 <Col>
@@ -74,11 +78,12 @@ const DetailRace = (props) => {
                                             <FontAwesomeIcon icon={["far", "star"]} className={styles.StarIconOutline} />
                                         </span>)}
                                 </Col>
+                                <Col xs={1}> <FontAwesomeIcon icon="fa-regular fa-pen-to-square" onClick={() => navigate(`/races/create`)} /></Col>
                             </Row>
 
                             <Row>
                                 <Col xs={4} sm={4}> Country: </Col>
-                                <Col> {country} </Col>
+                                <Col> {country ? regionNames.of(country.toUpperCase()) : ""} </Col>
                             </Row>
                             <Row>
                                 <Col xs={4} sm={4}> Distance: </Col>
@@ -117,12 +122,12 @@ const DetailRace = (props) => {
                             {run_id ? (
                                 <span onClick={handleUnrun}>
                                     <FontAwesomeIcon icon="fa-solid fa-person-running" className={styles.Icon} />
-                                 
+                                    <Col xs={12} className={styles.AttendText}> You are running!! </Col>
                                 </span> 
                             ) : (
                                 <span onClick={handleRun}>
                                     <FontAwesomeIcon icon="fa-solid fa-person-running" className={styles.Icon} />
-                                    <Col xs={12} className={styles.AttendText}> You are running!! </Col>
+                                    {/* <Col xs={12} className={styles.AttendText}> You are running!! </Col> */}
                                 </span>)}
                               
                         </Col>

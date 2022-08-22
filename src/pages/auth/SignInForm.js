@@ -56,7 +56,7 @@ function SignInForm() {
                         <Container>
                             <Row>
                                 <Col>
-                                    {/* <h1 className={styles.Header}>sign in</h1> */}
+                                    <h1 className={styles.Header}></h1>
 
                                     <Form onSubmit={handleSubmit}>
                                         <Form.Group controlId="username">

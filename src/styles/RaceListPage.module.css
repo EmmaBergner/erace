@@ -3,11 +3,12 @@
     color: var(--text);
     padding-left: 40px;
     margin-bottom: 16px;
+    font-size: 16px;
   }
   
   .SearchIcon {
     position: absolute;
-    font-size: 0.8rem;
+    font-size: 14px;
     padding: 9px;
     padding-left: 15px;
 
@@ -26,8 +27,7 @@
     border-radius: 2px;
   }
 
-  .AddIcon {
-    font-size: 8px;
-    border-radius: 2px;
-    border: 1px solid var(--border);
+  .Checkbox {
+    font-size: 12px;
+    margin-top: 6px;
   }

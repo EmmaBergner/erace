@@ -16,6 +16,7 @@ function HomePage({ message, filter = "" }) {
     const profile_id = currentUser?.profile_id || "";
 
     const [races, setRaces] = useState({ results: [] });
+    const regionNames = new Intl.DisplayNames(['en'], {type: 'region'});
 
     // Select the race that is closest in time. 
     const calculateNext = (allOptions) => {
@@ -72,6 +73,8 @@ function HomePage({ message, filter = "" }) {
         }
     }, [timeLeftSeconds]);
 
+    
+
     return (
         <>
             {!hasLoaded ?
@@ -120,7 +123,8 @@ function HomePage({ message, filter = "" }) {
                                 <div className={styles.NextRun}>Your next run is in:
                                 </div>
                             </div>
-                            <div className={styles.Country}>{nextRace?.country}</div>
+                        
+                            <div className={styles.Country}>{nextRace?.country ? regionNames.of(nextRace.country.toUpperCase()) : ""} </div>
                         </Card.Body>
                     </div>
                 )

@@ -13,11 +13,12 @@
   text-align: center;
   padding: 10px;
   margin-bottom: 1.5rem;
+  font-size: 14px;
 }
 
 .Header {
   font-style: normal;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 19px;
   text-align: center;
   letter-spacing: 0.1em;
@@ -26,6 +27,7 @@
   display: block;
   margin: auto;
   padding: 20px;
+  width: 200px;
 }
 
 .HeadText {
@@ -42,10 +44,13 @@
   display: block;
   margin: auto;
   padding: 20px;
+  font-size: 14px;
+  
 }
 
 .Link span {
   color: var(--link);
+  font-size: 16px;
 }
 
 .Container {

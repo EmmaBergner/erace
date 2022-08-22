@@ -17,11 +17,9 @@ h5 {
 }
 .StarIcon {
   color: #f4dc46;
-  font-size: 14px;
 }
 .StarIconOutline {
   color: #f4dc46;
-  font-size: 14px;
 }
 .StarIcon:hover {
   color: #f59c37;
@@ -33,7 +31,6 @@ h5 {
 
 .Icon {
   color: var(--text);
-
 }
 .IconOutline {
   color: #f4dc46;
@@ -50,29 +47,14 @@ h5 {
   font-size: 20px;
 }
 
-.raceCountry {
-  font-size: 20px;
-  text-transform: uppercase;
-}
-
 .creadit {
   font-size: 12px;
   color: var(--credit);
 }
 
-.smallStar {
-  font-size: 29px;
-}
 
 .websiteLink {
   color: var(--link)
-}
-
-.attend {
-  font-size: 10px;
-  /* border: 2px solid var(--border); */
-  width: 100%;
-  text-align: center;
 }
 
 .AttendText {

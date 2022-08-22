@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { CurrentUserProvider } from './contexts/CurrentUserContext';
 import { ProfileDataProvider } from './contexts/ProfileDataContext';
+import 'react-bootstrap-country-select/dist/react-bootstrap-country-select.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

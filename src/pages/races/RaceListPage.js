@@ -16,6 +16,7 @@ import ListRace from "./ListRace.js";
 import { useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import CountrySelect from 'react-bootstrap-country-select';
 
 
 function RaceListPage({ message, filter = "" }) {
@@ -81,26 +82,34 @@ function RaceListPage({ message, filter = "" }) {
     }, [starOnly, upcoming]);
 
     return (
+
         <>
+            <Row> Where are you running next? Search on a country, filter races you've liked, and upcoming races. </Row>
             <Form className={styles.SearchBar} onSubmit={(event) => event.preventDefault()}>
                 <Container>
                     <Row className="h-100">
-                    
-                        <Col md={4} xs={12}> 
-                            <Form.Control type="text" value={country} onChange={(event) => setCountry(event.target.value)} placeholder="Type country" />
+
+                        <Col md={4} xs={12}>
+                           
+                      
+                            <CountrySelect value={country} onChange={(c) => setCountry(c?.id)}
+                            />
+
+                        </Col>
+
+
+                        <Col md={2} xs={6}>
+                            <Form.Check type="checkbox" value={starOnly} onChange={(event) => setStarOnly(!starOnly)} label="Liked Races" className={styles.Checkbox} />
                         </Col>
                         <Col md={2} xs={6}>
-                            <Form.Check type="checkbox" value={starOnly} onChange={(event) => setStarOnly(!starOnly)} label="Liked Races" />
-                        </Col>
-                        <Col md={2} xs={6}>
-                            <Form.Check type="checkbox" value={upcoming} onChange={(event) => setUpcoming(!upcoming)} label="Upcoming Races" />
+                            <Form.Check type="checkbox" value={upcoming} onChange={(event) => setUpcoming(!upcoming)} label="Upcoming Races" className={styles.Checkbox} />
                         </Col>
                     </Row>
                     <Row>
                         <Col md={8}> <hr></hr></Col></Row>
                 </Container>
             </Form>
-           
+
             <Row className="h-100">
                 <Col md={8}>
                     {/* <i className={`fas fa-search ${styles.SearchIcon}`} /> */}

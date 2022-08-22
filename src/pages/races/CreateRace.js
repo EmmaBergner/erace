@@ -1,15 +1,19 @@
 import React, { useState } from "react";
 import { Form, Button, Col, Container, Alert, Card, Row } from "react-bootstrap";
-import styles from "../../styles/CreateRace.module.css";
+import styles from "../../styles/CreateRace.module.css"; 
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import { useNavigate } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefault";
 import { useRedirect } from "../../hooks/UseRedirect";
+import CountrySelect from 'react-bootstrap-country-select';
+
 
 function CreateRace() {
   useRedirect('loggedOut')
   const [errors, setErrors] = useState({});
+
+  const [value, setValue] = useState(null);
 
   const [raceData, setRaceData] = useState({ name: "", date: "", time: "", distance: "", country: "", website: "", });
 
@@ -18,11 +22,22 @@ function CreateRace() {
   const navigate = useNavigate();
 
   const handleChange = (event) => {
+    console.log("event >>> " + event)
     setRaceData({
       ...raceData,
       [event.target.name]: event.target.value,
     });
   };
+
+  const handleCountryChange = (value) => {
+    if (value) console.log("value >>> " + JSON.stringify(value))
+    setRaceData({
+      ...raceData,
+      country: value ? value.id : null,
+    });
+  };
+
+
 
   const handleSubmit = async (event) => {
     console.log('---> handleSubmit name , date, distance, country, website):', name, date + "T" + time, distance, country, website)
@@ -58,7 +73,7 @@ function CreateRace() {
           name="name"
           value={name}
           onChange={handleChange}
-        // placeholder="Stockholm Halfmarathon"
+          placeholder="Stockholm Halfmarathon"
         />
         <Form.Label>Country:</Form.Label>
         <Form.Control className={styles.Input}
@@ -66,8 +81,15 @@ function CreateRace() {
           name="country"
           value={country}
           onChange={handleChange}
-        // placeholder="Sweden"
+          placeholder="Sweden"
         />
+<Form.Label>Country:</Form.Label>
+        <CountrySelect
+          value={country}
+          onChange={(c) => handleCountryChange(c)}
+        />
+
+
         <Form.Label>Date:</Form.Label>
         <Form.Control className={styles.Input}
           type="date"
@@ -88,7 +110,7 @@ function CreateRace() {
           name="distance"
           value={distance}
           onChange={handleChange}
-        // placeholder="21.1 K"
+          placeholder="21.1 K"
         />
         <Form.Label>Official website:</Form.Label>
         <Form.Control className={styles.Input}
@@ -96,7 +118,7 @@ function CreateRace() {
           name="website"
           value={website}
           onChange={handleChange}
-        // placeholder="www.stockholmhalvmarathon.se/"
+          placeholder="www.stockholmhalvmarathon.se/"
 
         />
       </Form.Group>
@@ -117,7 +139,7 @@ function CreateRace() {
 
     <Form onSubmit={handleSubmit}>
       <Row>
-      <Col  md={4}>
+        <Col md={4}>
           Please enter details about your race!
 
           Before adding your race, go to Races and to see if it's not added already.All feilds are requierd...
@@ -128,7 +150,7 @@ function CreateRace() {
           </Container>
         </Col>
 
-       
+
       </Row>
     </Form>
   );

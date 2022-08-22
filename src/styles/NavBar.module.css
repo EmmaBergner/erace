@@ -1,6 +1,7 @@
 .NavBar {
     background-color: var(--background);
     border: 1px solid var(--border);
+    font-size: 14px;
 }
 
 .NavLink {
@@ -13,7 +14,7 @@
 
 svg {
     color: var(--button);
-    font-size: 1rem;
+    font-size: 16px;
     padding: 7px;
     vertical-align: middle !important;
   }
