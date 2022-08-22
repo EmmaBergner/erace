@@ -36,6 +36,7 @@ function App() {
           <Route exact path="/" element={<HomePage />} />
           <Route exact path="/races" element={<RaceListPage />} />
           <Route exact path="/races/create" element={<RaceCreateForm />} />
+          <Route exact path="/races/edit/:id" element={<RaceCreateForm />} />
           <Route exact path="/runs" element={<RunsPage />} />
           <Route exact path="/races/:id" element={<RaceDetailPage />} />
 

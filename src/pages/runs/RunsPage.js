@@ -4,11 +4,11 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { axiosReq } from "../../api/axiosDefault";
 import Asset from "../../components/Asset";
 import appStyles from "../../App.module.css";
-import styles from "../../styles/HomePage.module.css";
+import styles from "../../styles/RunsPage.module.css";
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import Container from "react-bootstrap/Container";
+import Container from "react-bootstrap/Container"
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import ListRace from "../races/ListRace.js";
@@ -24,11 +24,20 @@ function RunsPage({ message, filter = "" }) {
 
     const [races, setRaces] = useState({ results: [] });
 
+    const [passed, setPassed] = useState([]);
+    const [upcoming, setUpcoming] = useState([]);
+
     const fetchRaces = async () => {
         try {
             const { data } = await axiosReq.get(`/races?runs__owner__profile=${profile_id}`);
             setRaces(data)
-
+            const now = new Date()
+            setUpcoming(data.results.filter(
+                (r) => now < new Date(r.date)
+            ))
+            setPassed(data.results.filter(
+                (r) => now > new Date(r.date)
+            ))
             setHasLoaded(true)
         } catch (err) {
             console.log(err)
@@ -42,36 +51,60 @@ function RunsPage({ message, filter = "" }) {
 
     return (
 
-        <Row className="h-100">
-            <Col className="py-2 p-0 p-lg-2" lg={8}>
+        <Container>
+            <Row className={styles.myRaces}>
+                <Col xs={6}>
 
-                {hasLoaded ? (
-                    <>
-                        {races.results.length ? (
-                            <InfiniteScroll
-                                children={
-                                    races.results.map((race) => (
+                    Your passed races
+                </Col>
+
+                <Col xs={6}>
+                    Your upcoming races
+                </Col>
+            </Row>
+            {hasLoaded ? (
+                <Row>
+                    <Col className={styles.passedInfo} xs={6}>
+
+                        {passed.length ?
+                            passed.map((race) => (
+                                <ListRace key={race.id} {...race} setRaces={setRaces} />
+                            )) : (
+                                <Container className={appStyles.Content}>
+                                    Your passed races will appear here.
+                                </Container>
+                            )}
+
+
+                    </Col>
+
+                    <Col xs={6}>
+                        {hasLoaded ? (
+                            <>
+                                {upcoming.length ?
+                                    upcoming.map((race) => (
                                         <ListRace key={race.id} {...race} setRaces={setRaces} />
-                                    ))
-                                }
-                                dataLength={races.results.length}
-                                loader={<Asset spinner />}
-                                hasMore={!!races.next}
-                                next={() => fetchMoreData(races, setRaces)}
-                            />
+                                    )) : (
+                                        <Container className={appStyles.Content}>
+                                            Please add some races and run with it!
+                                        </Container>
+                                    )}
+
+                            </>
                         ) : (
+
                             <Container className={appStyles.Content}>
-                                Please add some races and run with it!
+                                <Asset spinner />
                             </Container>
                         )}
-                    </>
-                ) : (
-                    <Container className={appStyles.Content}>
-                        <Asset spinner />
-                    </Container>
-                )}
-            </Col>
-        </Row>
+                    </Col>
+                </Row>) : (
+
+                <Container className={appStyles.Content}>
+                    <Asset spinner />
+                </Container>
+            )}
+        </Container>
     );
 }
 

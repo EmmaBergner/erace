@@ -31,7 +31,6 @@ function RaceDetailPage() {
                     axiosReq.get(`/races/${id}`),
                     axiosReq.get(`/comments/?race=${id}`)
                 ])
-
                 setRace(r);
                 setComments(c);
             } catch (err) {
@@ -43,8 +42,6 @@ function RaceDetailPage() {
 
     return (
         <>
-
-
             <Row className="h-100">
 
                 <Col lg={8}>
@@ -89,7 +86,6 @@ function RaceDetailPage() {
                         )}
                     </Container>
                 </Col>
-
             </Row>
         </>
     );

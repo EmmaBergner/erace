@@ -6,14 +6,20 @@
 
 .NavLink {
     padding: 5px;
+    color: var(--nav_button);
+}
+
+.NavLink:hover {
+    padding: 5px;
+    color: var(--nav_button_hover);
 }
 
 .Active{
-    color: var(--text)
+    color: var(--nav_button_active);
+    
 }
 
 svg {
-    color: var(--button);
     font-size: 16px;
     padding: 7px;
     vertical-align: middle !important;
@@ -21,7 +27,6 @@ svg {
   
 svg:hover {
     cursor: pointer;
-    transition: color ease-in-out 0.3s;
-    color: var(--button_hover);
+    transition: color ease-in-out 0.0s;
   }
   

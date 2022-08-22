@@ -84,17 +84,17 @@ function RaceListPage({ message, filter = "" }) {
     return (
 
         <>
-            <Row> Where are you running next? Search on a country, filter races you've liked, and upcoming races. </Row>
+            <Container>
+            <Row className={styles.SearchInspo}> Where are you running next? </Row>
+            <Row className={styles.SearchInfo}> Search on country, filter races you've liked, and upcoming races. </Row>
+         
             <Form className={styles.SearchBar} onSubmit={(event) => event.preventDefault()}>
                 <Container>
-                    <Row className="h-100">
+                    <Row>
 
                         <Col md={4} xs={12}>
-                           
-                      
                             <CountrySelect value={country} onChange={(c) => setCountry(c?.id)}
                             />
-
                         </Col>
 
 
@@ -112,14 +112,13 @@ function RaceListPage({ message, filter = "" }) {
 
             <Row className="h-100">
                 <Col md={8}>
-                    {/* <i className={`fas fa-search ${styles.SearchIcon}`} /> */}
                     {hasLoaded ? (
                         <>
                             {races.results.length ? (
                                 <InfiniteScroll
                                     children={
                                         races.results.map((race) => (
-                                            <ListRace key={race.id} {...race} setRaces={setRaces} />
+                                            <ListRace key={race.id} {...race} setRaces={setRaces} showStar/>
                                         ))
                                     }
                                     dataLength={races.results.length}
@@ -140,6 +139,7 @@ function RaceListPage({ message, filter = "" }) {
                     )}
                 </Col>
             </Row>
+            </Container>
 
         </>
 

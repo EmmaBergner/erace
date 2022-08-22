@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Form, Button, Col, Container, Alert, Card, Row } from "react-bootstrap";
-import styles from "../../styles/CreateRace.module.css"; 
+import styles from "../../styles/CreateRace.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefault";
 import { useRedirect } from "../../hooks/UseRedirect";
 import CountrySelect from 'react-bootstrap-country-select';
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 
 function CreateRace() {
@@ -14,6 +15,10 @@ function CreateRace() {
   const [errors, setErrors] = useState({});
 
   const [value, setValue] = useState(null);
+
+  const { id } = useParams();
+
+  const currentUser = useCurrentUser();
 
   const [raceData, setRaceData] = useState({ name: "", date: "", time: "", distance: "", country: "", website: "", });
 
@@ -37,10 +42,25 @@ function CreateRace() {
     });
   };
 
+  const creating = id == null
 
+  useEffect(() => {
+    const handleMount = async () => {
+      try {
+        const { data } = await axiosReq.get(`/races/${id}`)
+        setRaceData({
+          ...data,
+          date: data.date.slice(0, 10),
+          time: data.date.slice(11, 19)
+        });
+      } catch (err) {
+        console.log(err)
+      }
+    };
+    handleMount();
+  }, [id]);
 
   const handleSubmit = async (event) => {
-    console.log('---> handleSubmit name , date, distance, country, website):', name, date + "T" + time, distance, country, website)
     event.preventDefault();
     try {
       const formData = new FormData();
@@ -49,22 +69,17 @@ function CreateRace() {
       formData.append("distance", distance);
       formData.append("country", country);
       formData.append("website", website);
-      formData.append("owner", 1); // EB bug hårdkod
-      console.log('---> handleSubmit formData', formData)
-      await axiosReq.post('/races/', formData);
-
-      console.log('---> navigate to races')
-      navigate("/races")
+      formData.append("owner", currentUser.pk);
+      creating
+        ? await axiosReq.post('/races/', formData)
+        : await axiosReq.put(`/races/${id}/`, formData);
+      navigate(creating ? '/races/' : -1)
     } catch (err) {
-      console.log('---> handleSubmit error', err)
-      console.log('---> handleSubmit error', err.response)
-      console.log('---> handleSubmit error', err.response?.data)
       setErrors(err.response?.data)
     }
   }
 
   const textFields = (
-
     <div className="text-center">
       <Form.Group controlId="name">
         <Form.Label>Race name:</Form.Label>
@@ -76,19 +91,10 @@ function CreateRace() {
           placeholder="Stockholm Halfmarathon"
         />
         <Form.Label>Country:</Form.Label>
-        <Form.Control className={styles.Input}
-          type="text"
-          name="country"
-          value={country}
-          onChange={handleChange}
-          placeholder="Sweden"
-        />
-<Form.Label>Country:</Form.Label>
         <CountrySelect
           value={country}
           onChange={(c) => handleCountryChange(c)}
         />
-
 
         <Form.Label>Date:</Form.Label>
         <Form.Control className={styles.Input}
@@ -125,34 +131,63 @@ function CreateRace() {
       {errors.name?.map((message, idx) =>
         <Alert variant="warning" key={idx}>{message}</Alert>)}
 
-      <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} onClick={() => { }} >
+      <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} onClick={() => { navigate(-1) }} >
         Cancel
       </Button>
       <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
-        Create
+        {creating ? "Create" : "Save"}
       </Button>
     </div>
 
   );
 
   return (
+    creating ? (
+      <Form onSubmit={handleSubmit}>
+        <Row>
+          <Col md={4}>
+            Enter details about your upcoming race!
 
-    <Form onSubmit={handleSubmit}>
-      <Row>
-        <Col md={4}>
-          Please enter details about your race!
+            Before adding your race, go to Races and to see if it's not added already.
+            All feilds are requierd...
+          </Col>
+          <Col md={5} lg={4}>
+            <Container>{textFields}
+            </Container>
+          </Col>
+        </Row>
+      </Form>
 
-          Before adding your race, go to Races and to see if it's not added already.All feilds are requierd...
-        </Col>
-        <Col md={5} lg={4}>
-          <Container>{textFields}
+    ) : (
+      <Form onSubmit={handleSubmit}>
+        <Row>
+          <Col md={4}>
+            You can edit this race with updates!
+            <Row>
+              <Col className={styles.addText}>
+                Before saving,
+                Check that everything is accurate.
+                The spelling for the name of the race.
+                The country, distance, and website, date and time.
 
-          </Container>
-        </Col>
+                Please remmember, this is public informaton.
+              </Col>
+
+            </Row>
+
+          </Col>
+          <Col md={3} lg={4}>
+            <Container>{textFields}
+
+            </Container>
+          </Col>
 
 
-      </Row>
-    </Form>
+        </Row>
+      </Form>
+    )
+
+
   );
 }
 

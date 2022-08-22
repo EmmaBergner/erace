@@ -1,9 +1,23 @@
+
+.SearchInfo{
+  font-size: 16px;
+  margin: 5px;
+  text-align: center;
+  
+}
+.SearchInspo {
+  font-size: 18px;
+  text-align: center;
+ 
+}
+
 .SearchBar input {
     border-radius: 2px;
     color: var(--text);
-    padding-left: 40px;
+    padding-left: 10px;
     margin-bottom: 16px;
-    font-size: 16px;
+    font-size: 14px;
+    text-align: left;
   }
   
   .SearchIcon {

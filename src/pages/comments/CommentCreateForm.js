@@ -61,11 +61,8 @@ function CommentCreateForm(props) {
         <Form.Group>
           <Row className={styles.addInsp}>Add your image, more informaton, thoughts and inspire others to run this race! </Row>
           <Row>
-
-
             <Col></Col>
           </Row>
-
           <Row >
             <Col xs={8} sm={9} >
               <Form.Control

@@ -1,0 +1,11 @@
+.myRaces {
+    font-size: 14px;
+    text-align: center;
+    border-radius: 1px;
+}
+
+.passedInfo {
+    margin-top: 40px;
+    font-size: 14px;
+    color: var(--credit);
+}

@@ -78,7 +78,7 @@ const DetailRace = (props) => {
                                             <FontAwesomeIcon icon={["far", "star"]} className={styles.StarIconOutline} />
                                         </span>)}
                                 </Col>
-                                <Col xs={1}> <FontAwesomeIcon icon="fa-regular fa-pen-to-square" onClick={() => navigate(`/races/create`)} /></Col>
+                                <Col xs={1}> <FontAwesomeIcon icon="fa-regular fa-pen-to-square" onClick={() => navigate(`/races/edit/${id}`)} /></Col>
                             </Row>
 
                             <Row>

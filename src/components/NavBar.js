@@ -52,14 +52,14 @@ const NavBar = () => {
       <NavLink to="/signin"
         className={({ isActive }) => styles.NavLink + (isActive ? " " + styles.Active : "")}
         onClick={handleSignOut}>
-       <FontAwesomeIcon icon="fa-solid fa-right-from-bracket" />
+        <FontAwesomeIcon icon="fa-solid fa-right-from-bracket" />
       </NavLink>
     </>
 
   return (
     <>
       {currentUser ?
-        <Navbar expanded={expanded} className={styles.NavBar} expand="md" fixed='top' >
+        <Navbar expanded={expanded} className={styles.NavBar} expand={true} fixed='top' >
           <Container>
             <NavLink to="/">
             </NavLink>
@@ -68,8 +68,6 @@ const NavBar = () => {
               aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="mr-auto text-left">
-
-
                 {loggedInIcons}
               </Nav>
             </Navbar.Collapse>
