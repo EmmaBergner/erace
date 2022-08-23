@@ -1,11 +1,15 @@
 .myRaces {
-    font-size: 14px;
+    font-size: 10px;
     text-align: center;
-    border-radius: 1px;
+   letter-spacing: 1px;
+   text-transform: uppercase;
+    font-weight: bold;
+    color: var(--text);
+    padding: 10px;
 }
 
 .passedInfo {
-    margin-top: 40px;
+
     font-size: 14px;
     color: var(--credit);
 }

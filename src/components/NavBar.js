@@ -1,12 +1,10 @@
 import React from 'react';
+import axios from 'axios';
 import { Navbar, Container, Nav } from 'react-bootstrap';
-import styles from '../styles/NavBar.module.css';
 import { NavLink } from "react-router-dom";
 import { useCurrentUser, useSetCurrentUser } from '../contexts/CurrentUserContext';
-import Avatar from './Avatar';
-import axios from 'axios';
 import useClickOutsideToggle from '../hooks/useClickOutsideToggle';
-
+import styles from '../styles/NavBar.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const NavBar = () => {
@@ -38,7 +36,7 @@ const NavBar = () => {
         Races
       </NavLink>
 
-      <NavLink to="/races/create"
+      <NavLink to="/create"
         className={({ isActive }) => styles.NavLink + (isActive ? " " + styles.Active : "")} >
         <FontAwesomeIcon icon="fa-solid fa-plus" />
         Add Race
@@ -48,6 +46,7 @@ const NavBar = () => {
         className={({ isActive }) => styles.NavLink + (isActive ? " " + styles.Active : "")}>
         <FontAwesomeIcon icon="fa-solid fa-person-running" />Runs
       </NavLink>
+
 
       <NavLink to="/signin"
         className={({ isActive }) => styles.NavLink + (isActive ? " " + styles.Active : "")}

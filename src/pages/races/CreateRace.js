@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Form, Button, Col, Container, Alert, Card, Row } from "react-bootstrap";
-import styles from "../../styles/CreateRace.module.css";
-import appStyles from "../../App.module.css";
-import btnStyles from "../../styles/Button.module.css";
 import { useNavigate, useParams } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefault";
 import { useRedirect } from "../../hooks/UseRedirect";
 import CountrySelect from 'react-bootstrap-country-select';
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import styles from "../../styles/CreateRace.module.css";
+import appStyles from "../../App.module.css";
+import btnStyles from "../../styles/Button.module.css";
 
 
 function CreateRace() {
@@ -47,6 +47,7 @@ function CreateRace() {
   useEffect(() => {
     const handleMount = async () => {
       try {
+        if (creating) {return}
         const { data } = await axiosReq.get(`/races/${id}`)
         setRaceData({
           ...data,

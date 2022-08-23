@@ -13,15 +13,27 @@ export const CurrentUserProvider = ({ children }) => {
     const [currentUser, setCurrentUser] = useState(null)
 
     const handleMount = async () => {
+        console.log("Come back")
         try {
             let user = await axiosRes.get('dj-rest-auth/user/')
+            console.log("user = ", user)
             if (user) {
                 const { data } = user
                 setCurrentUser(data)
             }
-            else { setCurrentUser(null) }
+            else {
+                setCurrentUser(null)
+                navigate("/signin")
+               
+            }
         } catch (err) {
-            console.log(err);
+            if (err.response.status != 401) {
+                console.log(err);
+            }
+            else {
+                setCurrentUser(null)
+                navigate("/signin")
+            }
         }
     };
 

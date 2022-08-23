@@ -4,11 +4,8 @@
   border-radius: 2px;
   margin-bottom: 16px;
   font-size: 14px;
-  letter-spacing: 0.5px;
   color: var(--text);
   width: 320px;
-  
-
 }
 
 .Race figure,
@@ -45,18 +42,25 @@ h5 {
 .raceName {
   color: var(--link);
   font-size: 20px;
+  vertical-align: middle ;
 }
 
 .creadit {
-  font-size: 12px;
+  font-size: 10px;
   color: var(--credit);
+  padding-left: 15px;
 }
 
 
 .websiteLink {
   color: var(--link)
+
 }
 
 .AttendText {
   font-size: 10px;
+  font-family: 'Mali', cursive;
+  font-weight: bold;
+  vertical-align: middle ;
+
 }

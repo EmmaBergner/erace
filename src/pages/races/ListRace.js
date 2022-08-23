@@ -1,11 +1,11 @@
 import React from "react";
 import { Card, Col, Container, Row, } from 'react-bootstrap';
-import styles from "../../styles/ListRace.module.css";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { axiosRes } from '../../api/axiosDefault';
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { useNavigate } from "react-router-dom";
 import { handleActivate, handleDeactivate } from "../../utils/utils";
+import styles from "../../styles/ListRace.module.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 
@@ -14,7 +14,6 @@ const ListRace = (props) => {
         id, star_id, run_id, owner, name, distance, country, date, website, created_at, updated_at, like_id, setRaces, showStar
     } = props;
 
-    console.log(id, star_id, run_id, owner, name, distance, country, date,)
     const currentUser = useCurrentUser();
 
     const is_owner = currentUser?.username === owner

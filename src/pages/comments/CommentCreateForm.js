@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import styles from "../../styles/CommentCreateEditForm.module.css";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefault";
 import Image from 'react-bootstrap/Image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Col, Container, Row } from "react-bootstrap";
+import styles from "../../styles/CommentCreateEditForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 
 function CommentCreateForm(props) {
@@ -57,13 +57,16 @@ function CommentCreateForm(props) {
 
   return (
     <Form className="mt-2" >
-      <Container>
+      <Container className={styles.formBox}>
         <Form.Group>
-          <Row className={styles.addInsp}>Add your image, more informaton, thoughts and inspire others to run this race! </Row>
           <Row>
-            <Col></Col>
+          <Col className={styles.addInsp}>Add your image, more informaton, thoughts and inspire others to run this race! 
+          </Col>
           </Row>
           <Row >
+            <Col></Col>
+          </Row>
+          <Row  >
             <Col xs={8} sm={9} >
               <Form.Control
                 className={styles.Form}

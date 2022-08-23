@@ -1,10 +1,10 @@
 import React from "react";
 import { Card, Col, Container, Row, } from 'react-bootstrap';
-import styles from "../../styles/DetailRace.module.css";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { axiosRes } from '../../api/axiosDefault';
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Link, useNavigate } from "react-router-dom";
+import styles from "../../styles/DetailRace.module.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 
@@ -117,12 +117,12 @@ const DetailRace = (props) => {
                         </Col>
                     </Row>
                     <Row>
-                        <Col> </Col>
+                      
                         <Col xs={7} className={styles.IconCol}>
                             {run_id ? (
                                 <span onClick={handleUnrun}>
                                     <FontAwesomeIcon icon="fa-solid fa-person-running" className={styles.Icon} />
-                                    <Col xs={12} className={styles.AttendText}> You are running!! </Col>
+                                    <span className={styles.AttendText}> You are running!! </span>
                                 </span> 
                             ) : (
                                 <span onClick={handleRun}>

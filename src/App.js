@@ -35,10 +35,10 @@ function App() {
           <Route exact path="/signin" element={<SignInForm />} />
           <Route exact path="/" element={<HomePage />} />
           <Route exact path="/races" element={<RaceListPage />} />
-          <Route exact path="/races/create" element={<RaceCreateForm />} />
-          <Route exact path="/races/edit/:id" element={<RaceCreateForm />} />
-          <Route exact path="/runs" element={<RunsPage />} />
           <Route exact path="/races/:id" element={<RaceDetailPage />} />
+          <Route exact path="/races/edit/:id" element={<RaceCreateForm />} />
+          <Route exact path="/create" element={<RaceCreateForm />} />
+          <Route exact path="/runs" element={<RunsPage />} />
 
           <Route path="*" element={<p>Page not found</p>} />
         </Routes>

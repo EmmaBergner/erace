@@ -1,5 +1,3 @@
-
-import styles from "../../styles/Comment.module.css";
 import { Link } from 'react-router-dom';
 import Avatar from '../../components/Avatar';
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
@@ -9,6 +7,7 @@ import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import { Card, Col, Container, Row, } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import styles from "../../styles/Comment.module.css";
 
 const Comment = (props) => {
     const {

@@ -56,8 +56,8 @@ function HomePage({ message, filter = "" }) {
 
     useEffect(() => {
         setHasLoaded(false);
-        fetchRaces();
-    }, []);
+        if (currentUser) fetchRaces();
+    }, [currentUser]);
 
     useEffect(() => {
         intervalRef.current = setInterval(() => {
@@ -97,7 +97,7 @@ function HomePage({ message, filter = "" }) {
                 )
                 :
                 ( 
-                    <div className={styles.HomePage}>
+                    <Container className={styles.HomePage}>
                         <Card.Body>
                             <div>
                                 <div className="row">
@@ -126,7 +126,7 @@ function HomePage({ message, filter = "" }) {
                         
                             <div className={styles.Country}>{nextRace?.country ? regionNames.of(nextRace.country.toUpperCase()) : ""} </div>
                         </Card.Body>
-                    </div>
+                        </Container>
                 )
             }
         </>

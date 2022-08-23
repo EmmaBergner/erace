@@ -1,24 +1,38 @@
 .Form {
     border: none;
-    border-bottom: 1px #a1a5a6 solid;
+    border-bottom: 1px var(--border) solid;
     background-color: var(--input);
-  
   }
   
-  /* .addImage {
-    font-size: 10px;
-    text-align: center;
-  } */
-
+  .formBox {
+    border: 1px var(--border) solid;
+    padding: 10px;
+    width: 100%;
+  }
   .addInsp {
     font-size: 14px;
     text-align: left;
     padding-bottom: 20px;
-
-    
+    color: var(--credit)
   }
 
 .PostButton {
   margin: 5px;
   
+}
+
+.Icon {
+  color: var(--button);
+}
+
+.IconOutline {
+  color: var(--nav_button)
+}
+
+.Icon:hover {
+  color: var(--button_hover);
+}
+
+.IconOutline:hover {
+  color: var(--button_hover);
 }
