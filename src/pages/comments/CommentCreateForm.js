@@ -60,8 +60,8 @@ function CommentCreateForm(props) {
       <Container className={styles.formBox}>
         <Form.Group>
           <Row>
-          <Col className={styles.addInsp}>Add your image, more informaton, thoughts and inspire others to run this race! 
-          </Col>
+            <Col className={styles.addInsp}>Add your image, more informaton, thoughts and inspire others to run this race!
+            </Col>
           </Row>
           <Row >
             <Col></Col>
@@ -79,7 +79,7 @@ function CommentCreateForm(props) {
             </Col>
             <Col xs={1} className="p-0">
               <Form.Label htmlFor="image-upload">
-                <FontAwesomeIcon icon="fa-regular fa-image" />
+                <FontAwesomeIcon icon="fa-regular fa-image" className={styles.IconOutline} />
               </Form.Label>
               <Form.Control type="file" id="image-upload" accept="image/*" onChange={handleChangeImage} ref={imageInput} />
               <Row className={styles.addImage}> </Row>
@@ -94,8 +94,10 @@ function CommentCreateForm(props) {
               }
             </Col>
           </Row>
+    
 
         </Form.Group>
+
       </Container>
     </Form >
   );

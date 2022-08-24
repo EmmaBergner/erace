@@ -18,21 +18,17 @@
 
 .PostButton {
   margin: 5px;
-  
 }
 
 .Icon {
   color: var(--button);
 }
-
 .IconOutline {
   color: var(--nav_button)
 }
-
 .Icon:hover {
   color: var(--button_hover);
 }
-
 .IconOutline:hover {
   color: var(--button_hover);
 }

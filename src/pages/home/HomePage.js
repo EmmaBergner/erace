@@ -16,7 +16,7 @@ function HomePage({ message, filter = "" }) {
     const profile_id = currentUser?.profile_id || "";
 
     const [races, setRaces] = useState({ results: [] });
-    const regionNames = new Intl.DisplayNames(['en'], {type: 'region'});
+    const regionNames = new Intl.DisplayNames(['en'], { type: 'region' });
 
     // Select the race that is closest in time. 
     const calculateNext = (allOptions) => {
@@ -24,7 +24,7 @@ function HomePage({ message, filter = "" }) {
         let answer = null
         for (let i = 0; i < allOptions.length; i++) {
             let option = allOptions[i];
-            
+
             let optionDate = new Date(option.date);
             if (now < optionDate) { // Check that this race has not already been run. 
                 if (answer == null) // Select this race if there is no currently selected race.
@@ -43,10 +43,11 @@ function HomePage({ message, filter = "" }) {
             if (data.results.length > 0) {
                 const nr = calculateNext(data.results)
                 setNextRace(nr)
-
-                const start = new Date(nr.date).getTime() / 1000
-                const now = new Date().getTime() / 1000
-                setTimeLeftSeconds(start - now)
+                if (nr != null) {
+                    const start = new Date(nr.date).getTime() / 1000
+                    const now = new Date().getTime() / 1000
+                    setTimeLeftSeconds(start - now)
+                }
             }
             setHasLoaded(true)
         } catch (err) {
@@ -73,7 +74,7 @@ function HomePage({ message, filter = "" }) {
         }
     }, [timeLeftSeconds]);
 
-    
+
 
     return (
         <>
@@ -85,49 +86,49 @@ function HomePage({ message, filter = "" }) {
                 )
                 :
                 nextRace == null ?
-                (
-                <div className={styles.Welcome}>Where are you running next?
+                    (
+                        <div className={styles.Welcome}>Where are you running next?
 
-                <p> Go to “Races” to add your upcoming race or races. Search for a race based on country to see if 
-                it's already in the database. If not, you can add it.</p>
-                
-                <p>Mark races you are interested in and want to find easily by clicking the star icon. </p> 
-                
-                Attend a race, and it will appear under "My runs" so that you can easily keep track of your upcoming races. </div>
-                )
-                :
-                ( 
-                    <Container className={styles.HomePage}>
-                        <Card.Body>
-                            <div>
-                                <div className="row">
-                                    <div className="NameCol col" >
-                                        {Math.floor(timeLeftSeconds / (60 * 60 * 24))}
-                                        <p className={styles.Label}>Days</p>
-                                    </div>
-                                    <div className="NameCol col" >
-                                        {Math.floor(timeLeftSeconds % (60 * 60 * 24) / (60 * 60))}
-                                        <p className={styles.Label}>Hours</p>
-                                    </div>
-                                    <div className="NameCol col" >
-                                        {Math.floor(timeLeftSeconds % (60 * 60) / 60)}
-                                        <p className={styles.Label}>Minutes</p>
-                                    </div>
-                                    <div className="NameCol col" >
-                                        {Math.floor(timeLeftSeconds % 60)}
-                                        <p className={styles.Label}>Seconds</p>
+                            <p> Go to “Races” to add your upcoming race or races. Search for a race based on country to see if
+                                it's already in the database. If not, you can add it.</p>
+
+                            <p>Mark races you are interested in and want to find easily by clicking the star icon. </p>
+
+                            Attend a race, and it will appear under "My runs" so that you can easily keep track of your upcoming races. </div>
+                    )
+                    :
+                    (
+                        <Container className={styles.HomePage}>
+                            <Card.Body>
+                                <div>
+                                    <div className="row">
+                                        <div className="NameCol col" >
+                                            {Math.floor(timeLeftSeconds / (60 * 60 * 24))}
+                                            <p className={styles.Label}>Days</p>
+                                        </div>
+                                        <div className="NameCol col" >
+                                            {Math.floor(timeLeftSeconds % (60 * 60 * 24) / (60 * 60))}
+                                            <p className={styles.Label}>Hours</p>
+                                        </div>
+                                        <div className="NameCol col" >
+                                            {Math.floor(timeLeftSeconds % (60 * 60) / 60)}
+                                            <p className={styles.Label}>Minutes</p>
+                                        </div>
+                                        <div className="NameCol col" >
+                                            {Math.floor(timeLeftSeconds % 60)}
+                                            <p className={styles.Label}>Seconds</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div className="row justify-content-md-center NextRun">
-                                <div className={styles.NextRun}>Your next run is in:
+                                <div className="row justify-content-md-center NextRun">
+                                    <div className={styles.NextRun}>Your next run is in:
+                                    </div>
                                 </div>
-                            </div>
-                        
-                            <div className={styles.Country}>{nextRace?.country ? regionNames.of(nextRace.country.toUpperCase()) : ""} </div>
-                        </Card.Body>
+
+                                <div className={styles.Country}>{nextRace?.country ? regionNames.of(nextRace.country.toUpperCase()) : ""} </div>
+                            </Card.Body>
                         </Container>
-                )
+                    )
             }
         </>
     );

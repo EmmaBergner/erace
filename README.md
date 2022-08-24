@@ -4,9 +4,10 @@
 __Live Site:__
 [eRace](https://emmabergner.github.io/blink/) 
 
-eRace is a web browser application where runners can find and share running races happening in the world.
+As a runner, you become part of a global community. A running race can bring together participants from all over the world to compete with and motivate each other runners.
 
-![Ami Responsive]()
+eRace is a web browser application where runners can find and share running races happening in the world.
+We let running athletes quickly find new races and provide a platform where runners can spread and share running races happening over the world. Whether you are looking for a picturesque trail run near you, or going for a holiday and want to find a run in that specific country, you can find or add it here.
 
 ## Why use our app?
 The information, the recomendation is all based and comes from personal expericenes. 
@@ -16,18 +17,17 @@ The information, the recomendation is all based and comes from personal experice
 ### The Business Interface
 
 
-
 #### __Signin Page__
 The login page is the first page a user will see. From here there are two ways to continue:
 - Register a new account inorder to sign in. 
 - If already registered simply sign in to get access to the applications features.  
 
 #### __Sign up Page__
-The sign up page is for new users where they fill in the following information to register a new account. After signing up, users will auctomaicly be reassign to the login page. 
+The sign up page is for new users where they fill in the following information to register a new account. After signing up, users will automatically be reassign to the login page. 
 
 
 #### __Next Page__
-Once logged in, this is the fist page that shows. Here there are two different stadges. 
+Once logged in, this is the fist page that shows. Here there are two different stages. 
 - First time and before adding any races to "my runs" a message will show with instructions. 
 - After adding a race to "my runs", next page will count down on days, hours, minutes and seconds. 
 
@@ -36,28 +36,27 @@ The race page shows a list of all races added by users. There are three filter f
 - This list gives users a quick overview about the race with: 
 - Name of the race, distance, date and country. 
 - Users are able to save a race by clicking the star and will be easy to find later on. 
-- Users can search on a country. A dropdown list of countrys will appear and make it easier for users to select the correct country. 
+- Users can search on a country. A dropdown list of countries will appear and make it easier for users to select the correct country. 
 - Users can mark "liked races" and only liked races will show in the list. 
 - Users can mark "upcoming races" and only upcoming races will show up in the list. Passed races will not show, when this is marked. 
 
 
 #### __Detail Page__
 If users wants to read more about a specific race, by clicking the races name in the list on races page the detail page shows up. 
-- Added information such as time and official website is showned. 
+- Added information such as time and official website is showed. 
 - The website is a clickable link for users to visit the official website and register for the race. 
 - Users can attend the race by clicking on the running logo and the race will appear under "my runs".
 - Users can leave comments, add updated information about the race and add images to inspire other runners. 
 - The users who is responsible for adding the specific race can edit and update information. 
 
 #### __Add Race Page__
-The adding race page is where users add upcoming races. At the top of the page users find information about what is importat to think about when adding a race. Important to think about is: 
+The adding race page is where users add upcoming races. At the top of the page users find information about what is important to think about when adding a race. Important to think about is: 
 - That everything is accurate.
 - The spelling for the name of the race.
 - The country, distance, and website, date and time.
 
 - The information provided it public and everyone using the application will take part of what is written. 
-- Create 
-- Cancel 
+- A user can click create or cancel and will be redirected to last visit page. 
 
 
 #### __Runs Page__

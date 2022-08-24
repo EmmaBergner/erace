@@ -122,7 +122,7 @@ const DetailRace = (props) => {
                             {run_id ? (
                                 <span onClick={handleUnrun}>
                                     <FontAwesomeIcon icon="fa-solid fa-person-running" className={styles.Icon} />
-                                    <span className={styles.AttendText}> You are running!! </span>
+                                    <span className={styles.AttendText}> You are running! </span>
                                 </span> 
                             ) : (
                                 <span onClick={handleRun}>

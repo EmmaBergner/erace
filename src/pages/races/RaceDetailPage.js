@@ -78,7 +78,7 @@ function RaceDetailPage() {
                                 next={() => fetchMoreData(comments, setComments)}
                             />
                         ) : currentUser ? (
-                            <span>No comments yet, be the first to comment!</span>
+                            <span className={styles.CommentText}>No comments yet, be the first to comment!</span>
                         ) : (
                             <span> No comments...yet</span>
                         )}

@@ -48,7 +48,6 @@ h5 {
 .creadit {
   font-size: 10px;
   color: var(--credit);
-  padding-left: 15px;
 }
 
 
@@ -58,9 +57,10 @@ h5 {
 }
 
 .AttendText {
-  font-size: 10px;
-  font-family: 'Mali', cursive;
+  font-size: 9px;
   font-weight: bold;
   vertical-align: middle ;
+  text-transform: uppercase;
+  color: var(--text);
 
 }
