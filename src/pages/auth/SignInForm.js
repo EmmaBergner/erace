@@ -6,6 +6,7 @@ import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 import { useRedirect } from "../../hooks/UseRedirect";
 import styles from "../../styles/SignInUpForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
+import { setTokenTimestamp } from "../../utils/utils";
 
 function SignInForm() {
     const setCurrentUser = useSetCurrentUser()
@@ -32,6 +33,7 @@ function SignInForm() {
         try {
             const { data } = await axios.post('/dj-rest-auth/login/', signInData);
             setCurrentUser(data.user)
+            setTokenTimestamp(data)
             navigate('/')
         } catch (err) {
             setErrors(err.response?.data)
@@ -54,7 +56,6 @@ function SignInForm() {
                         <Container>
                             <Row>
                                 <Col>
-                                    <h1 className={styles.Header}></h1>
 
                                     <Form onSubmit={handleSubmit}>
                                         <Form.Group controlId="username">

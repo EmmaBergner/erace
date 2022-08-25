@@ -1,3 +1,4 @@
+import jwtDecode from "jwt-decode";
 import { axiosReq, axiosRes } from "../api/axiosDefault"
 
 export const fetchMoreData = async (resource, setResource) => {
@@ -8,22 +9,22 @@ export const fetchMoreData = async (resource, setResource) => {
             next: data.next,
             results: data.results.reduce((acc, cur) => {
                 return acc.some((accResult) => accResult.id === cur.id)
-                ? acc: [...acc, cur];
-             }, prevResource.results),
+                    ? acc : [...acc, cur];
+            }, prevResource.results),
         }));
-    } catch (err) {}
+    } catch (err) { }
 };
 
-export const followHelper = (profile, clickedProfile, following_id, follow) =>
-{console.log(follow);
+export const followHelper = (profile, clickedProfile, following_id, follow) => {
+    console.log(follow);
     return profile.id === clickedProfile.id ?
         {
             ...profile,
-            followers_count: profile.followers_count + (follow ? 1 : -1), 
-            following_id: follow ? following_id  : null
+            followers_count: profile.followers_count + (follow ? 1 : -1),
+            following_id: follow ? following_id : null
         }
         : profile.is_owner ?
-            {...profile, following_count: profile.following_count + (follow ? 1 : -1)}
+            { ...profile, following_count: profile.following_count + (follow ? 1 : -1) }
             :
             profile;
 }
@@ -64,5 +65,18 @@ export const handleActivate = async (path, idProp, id, setRaces, currentUser) =>
     }
 };
 
+export const setTokenTimestamp = (data) => {
+    const refreshTokenTimestamp = jwtDecode(data?.refresh_token).exp;
+    localStorage.setItem("refreshTokenTimestamp", refreshTokenTimestamp);
+    console.log("Set token timestamp", refreshTokenTimestamp)
+};
 
+export const shouldRefreshToken = () => {
+    return !!localStorage.getItem("refreshTokenTimestamp");
+};
+
+export const removeTokenTimestamp = () => {
+    localStorage.removeItem("refreshTokenTimestamp");
+    console.log("Removed token timestamp")
+};
 

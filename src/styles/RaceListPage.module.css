@@ -2,15 +2,10 @@
 .SearchInfo{
   font-size: 16px;
   margin: 5px;
-  text-align: center;
+
   
 }
-.SearchInspo {
-  font-size: 18px;
-  margin: 5px;
-  text-align: center;
- 
-}
+
 
 .SearchBar input {
     border-radius: 2px;

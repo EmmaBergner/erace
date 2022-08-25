@@ -72,8 +72,7 @@ const RaceListPage = ({ message, filter = "" }) => {
 
         <>
             <Container>
-                <Row className={styles.SearchInspo}> Where are you running next? </Row>
-                <Row className={styles.SearchInfo}> Search on country, filter races you've liked, and upcoming races. </Row>
+                <Row className={styles.SearchInfo}> Search on country, find races you've liked, and exclude passed races. </Row>
 
                 <Form className={styles.SearchBar} onSubmit={(event) => event.preventDefault()}>
                     <Container>

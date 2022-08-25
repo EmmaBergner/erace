@@ -2,6 +2,7 @@ import axios from 'axios';
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import { axiosReq, axiosRes } from "../api/axiosDefault";
 import { useNavigate } from "react-router-dom";
+import { removeTokenTimestamp, shouldRefreshToken } from "../utils/utils";
 
 export const CurrentUserContext = createContext();
 export const SetCurrentUserContext = createContext();
@@ -13,25 +14,34 @@ export const CurrentUserProvider = ({ children }) => {
     const [currentUser, setCurrentUser] = useState(null)
 
     const handleMount = async () => {
-        console.log("Come back")
         try {
-            let user = await axiosRes.get('dj-rest-auth/user/')
-            console.log("user = ", user)
-            if (user) {
-                const { data } = user
+            const { data } = await axiosRes.get('dj-rest-auth/user/')
+            if (data) {
+                console.log("CurrentUserProvider", "User", data.username);
                 setCurrentUser(data)
             }
             else {
-                setCurrentUser(null)
-                navigate("/signin")
-               
+                console.log("CurrentUserProvider", "No  user");
+                setCurrentUser((prevCurrentUser) => {
+                    if (prevCurrentUser) {
+                        navigate("/signin");
+                    }
+                    return null;
+                })
+
             }
         } catch (err) {
-            if (err.response.status !== 401) {
-                console.log(err);
+            if (err?.response?.status !== 401) {
+                console.log("CurrentUserProvider", "Not signed out", err);
             }
             else {
-                setCurrentUser(null)
+                console.log("CurrentUserProvider", "Signed out", err);
+                setCurrentUser((prevCurrentUser) => {
+                    if (prevCurrentUser) {
+                        navigate("/signin");
+                    }
+                    return null;
+                })
                 navigate("/signin")
             }
         }
@@ -39,6 +49,7 @@ export const CurrentUserProvider = ({ children }) => {
 
     useEffect(() => {
         handleMount();
+        // eslint-disable-next-line
     }, []);
 
     //////////////////// Interceptors /////////////////// 
@@ -48,16 +59,22 @@ export const CurrentUserProvider = ({ children }) => {
     useMemo(() => {
         axiosReq.interceptors.request.use(
             async (config) => {
-                try {
-                    await axios.post("/dj-rest-auth/token/refresh/");
-                } catch (err) {
-                    setCurrentUser((prevCurrentUser) => {
-                        if (prevCurrentUser) {
-                            navigate("/signin");
-                        }
-                        return null;
-                    });
-                    return config;
+                if (shouldRefreshToken()) {
+                    try {
+                        console.log("axiosReq", "Post refresh");
+                        // EB TEMPORARY
+                        //await axios.post("/dj-rest-auth/token/refresh/");
+                    } catch (err) {
+                        console.log("axiosReq", "Refresh failed", err);
+                        setCurrentUser((prevCurrentUser) => {
+                            if (prevCurrentUser) {
+                                navigate("/signin");
+                            }
+                            return null;
+                        });
+                        removeTokenTimestamp();
+                        return config;
+                    }
                 }
                 return config;
             },
@@ -71,14 +88,17 @@ export const CurrentUserProvider = ({ children }) => {
             async (err) => {
                 if (err.response?.status === 401) {
                     try {
+                        console.log("axiosRes", "Post refresh", err);
                         await axios.post("/dj-rest-auth/token/refresh/");
                     } catch (err) {
+                        console.log("axiosRes", "Refresh failed", err);
                         setCurrentUser((prevCurrentUser) => {
                             if (prevCurrentUser) {
                                 navigate("/signin");
                             }
                             return null;
                         });
+                        removeTokenTimestamp();
                     }
                     return axios(err.config);
                 }

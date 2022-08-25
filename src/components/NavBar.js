@@ -39,7 +39,7 @@ const NavBar = () => {
       <NavLink to="/create"
         className={({ isActive }) => styles.NavLink + (isActive ? " " + styles.Active : "")} >
         <FontAwesomeIcon icon="fa-solid fa-plus" />
-        Add Race
+        Add&nbsp;Race
       </NavLink>
 
       <NavLink to='/runs'

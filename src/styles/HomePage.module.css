@@ -31,8 +31,9 @@
 }
 
 .NextRun {
-    text-align: center;
+    
     color: var(--text);
+    text-align: center;
     font-size: 35px;
     font-family: 'Mali', cursive;
     padding-top: 50px;

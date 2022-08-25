@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react'
-import { Card } from 'react-bootstrap';
+import { Card, Col, Row } from 'react-bootstrap';
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { axiosReq } from "../../api/axiosDefault";
 import Container from "react-bootstrap/Container";
@@ -7,15 +7,13 @@ import Asset from "../../components/Asset";
 import appStyles from "../../App.module.css";
 import styles from "../../styles/HomePage.module.css";
 
-function HomePage({ message, filter = "" }) {
+const HomePage = () => {
     const [timeLeftSeconds, setTimeLeftSeconds] = useState(5000);
     const intervalRef = useRef(); // Add a ref to store the interval id
     const [hasLoaded, setHasLoaded] = useState(false);
     const [nextRace, setNextRace] = useState(null)
     const currentUser = useCurrentUser();
     const profile_id = currentUser?.profile_id || "";
-
-    const [races, setRaces] = useState({ results: [] });
     const regionNames = new Intl.DisplayNames(['en'], { type: 'region' });
 
     // Select the race that is closest in time. 
@@ -39,7 +37,7 @@ function HomePage({ message, filter = "" }) {
     const fetchRaces = async () => {
         try {
             const { data } = await axiosReq.get(`/races?runs__owner__profile=${profile_id}`);
-            setRaces(data)
+            console.log("NEXT", JSON.stringify(data))
             if (data.results.length > 0) {
                 const nr = calculateNext(data.results)
                 setNextRace(nr)
@@ -49,15 +47,17 @@ function HomePage({ message, filter = "" }) {
                     setTimeLeftSeconds(start - now)
                 }
             }
+            console.log("NEXT loaded")
             setHasLoaded(true)
         } catch (err) {
-            console.log(err)
+            console.log("Home page", "fetchRaces", err)
         }
     }
 
     useEffect(() => {
         setHasLoaded(false);
         if (currentUser) fetchRaces();
+        // eslint-disable-next-line
     }, [currentUser]);
 
     useEffect(() => {
@@ -100,30 +100,29 @@ function HomePage({ message, filter = "" }) {
                     (
                         <Container className={styles.HomePage}>
                             <Card.Body>
-                                <div>
-                                    <div className="row">
-                                        <div className="NameCol col" >
+                                <div class="row gx-5">
+                                        <Col sm={3} xs={12}>
                                             {Math.floor(timeLeftSeconds / (60 * 60 * 24))}
                                             <p className={styles.Label}>Days</p>
-                                        </div>
-                                        <div className="NameCol col" >
+                                        </Col>
+                                        <Col sm={3} xs={4}>
                                             {Math.floor(timeLeftSeconds % (60 * 60 * 24) / (60 * 60))}
                                             <p className={styles.Label}>Hours</p>
-                                        </div>
-                                        <div className="NameCol col" >
+                                            </Col>
+                                        <Col sm={3} xs={4}>
                                             {Math.floor(timeLeftSeconds % (60 * 60) / 60)}
                                             <p className={styles.Label}>Minutes</p>
-                                        </div>
-                                        <div className="NameCol col" >
+                                            </Col>
+                                        <Col sm={3} xs={4}>
                                             {Math.floor(timeLeftSeconds % 60)}
                                             <p className={styles.Label}>Seconds</p>
-                                        </div>
-                                    </div>
+                                            </Col>
+                                    
                                 </div>
-                                <div className="row justify-content-md-center NextRun">
-                                    <div className={styles.NextRun}>Your next run is in:
-                                    </div>
-                                </div>
+                                <Row >
+                                    <Col className={styles.NextRun}>Your next run is&nbsp;in:
+                                    </Col>
+                                </Row>
 
                                 <div className={styles.Country}>{nextRace?.country ? regionNames.of(nextRace.country.toUpperCase()) : ""} </div>
                             </Card.Body>

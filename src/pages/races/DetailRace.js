@@ -58,85 +58,81 @@ const DetailRace = (props) => {
 
 
     return (
-        <Container>
-                <Card className={styles.Race}>
-                    <Card.Body >
-                        <Container>
-                            <Row>
-                                <Col>
-                                    <Row>
-                                        <Col>
-                                            <span className={styles.raceName} onClick={() => navigate(`/races/${id}`)}>
-                                                {name}
-                                            </span>
-                                            {star_id ? (
-                                                <span onClick={handleUnstar}>
-                                                    <FontAwesomeIcon icon="star" className={styles.StarIcon} />
-                                                </span>
-                                            ) : (
-                                                <span onClick={handleStar}>
-                                                    <FontAwesomeIcon icon={["far", "star"]} className={styles.StarIconOutline} />
-                                                </span>)}
-                                        </Col>
-                                        <Col xs={1}> <FontAwesomeIcon icon="fa-regular fa-pen-to-square" onClick={() => navigate(`/races/edit/${id}`)} /></Col>
-                                    </Row>
+        <Card className={styles.Race}>
+            <Card.Body >
+                <Row>
+                    <Col>
+                        <Row>
+                            <Col>
+                                <span className={styles.raceName} onClick={() => navigate(`/races/${id}`)}>
+                                    {name}
+                                </span>
+                                {star_id ? (
+                                    <span onClick={handleUnstar}>
+                                        <FontAwesomeIcon icon="star" className={styles.StarIcon} />
+                                    </span>
+                                ) : (
+                                    <span onClick={handleStar}>
+                                        <FontAwesomeIcon icon={["far", "star"]} className={styles.StarIconOutline} />
+                                    </span>)}
+                            </Col>
+                            <Col xs={2}>
+                                <FontAwesomeIcon icon="fa-regular fa-pen-to-square" onClick={() => navigate(`/races/edit/${id}`)} />
+                            </Col>
+                        </Row>
 
-                                    <Row>
-                                        <Col xs={4} sm={4}> Country: </Col>
-                                        <Col> {country ? regionNames.of(country.toUpperCase()) : ""} </Col>
-                                    </Row>
-                                    <Row>
-                                        <Col xs={4} sm={4}> Distance: </Col>
-                                        <Col> {distance} k </Col>
-                                    </Row>
+                        <Row>
+                            <Col xs={4} sm={4}> Country: </Col>
+                            <Col> {country ? regionNames.of(country.toUpperCase()) : ""} </Col>
+                        </Row>
+                        <Row>
+                            <Col xs={4} sm={4}> Distance: </Col>
+                            <Col> {distance} k </Col>
+                        </Row>
 
-                                    <Row>
-                                        <Col xs={4} sm={4}> Date:  </Col>
-                                        <Col>
-                                            {new Date(date).toDateString()}
-                                        </Col>
-                                    </Row>
+                        <Row>
+                            <Col xs={4} sm={4}> Date:  </Col>
+                            <Col>
+                                {new Date(date).toDateString()}
+                            </Col>
+                        </Row>
 
-                                    <Row>
-                                        <Col xs={4} sm={4}> Time:  </Col>
-                                        <Col>
-                                            {new Date(date).toLocaleTimeString()}
-                                        </Col>
-                                    </Row>
+                        <Row>
+                            <Col xs={4} sm={4}> Time:  </Col>
+                            <Col>
+                                {new Date(date).toLocaleTimeString()}
+                            </Col>
+                        </Row>
 
-                                    <Row>
-                                        <Col xs={4} sm={4} > Website: </Col>
-                                        <Col className={styles.websiteLink}>
-                                            {website ?
-                                                (<a href={"//" + website} target="_blank" > {website} </a>) : ("")}
+                        <Row>
+                            <Col xs={4} sm={4} > Website: </Col>
+                            <Col className={styles.websiteLink}>
+                                {website ?
+                                    (<a href={"//" + website} target="_blank" > {website} </a>) : ("")}
 
-                                        </Col>
-                                    </Row>
-                                    <span className={styles.creadit}> Posted by {owner_username} at {updated_at}</span>
+                            </Col>
+                        </Row>
+                        <span className={styles.creadit}> Posted by {owner_username} at {updated_at}</span>
 
-                                </Col>
-                            </Row>
-                            <Row>
+                    </Col>
+                </Row>
+                <Row>
 
-                                <Col xs={7} className={styles.IconCol}>
-                                    {run_id ? (
-                                        <span onClick={handleUnrun}>
-                                            <FontAwesomeIcon icon="fa-solid fa-person-running" className={styles.Icon} />
-                                            <span className={styles.AttendText}> You are running! </span>
-                                        </span>
-                                    ) : (
-                                        <span onClick={handleRun}>
-                                            <FontAwesomeIcon icon="fa-solid fa-person-running" className={styles.Icon} />
-                                            {/* <Col xs={12} className={styles.AttendText}> You are running!! </Col> */}
-                                        </span>)}
+                    <Col xs={7} className={styles.IconCol}>
+                        {run_id ? (
+                            <span onClick={handleUnrun}>
+                                <FontAwesomeIcon icon="fa-solid fa-person-running" className={styles.Icon} />
+                                <span className={styles.AttendText}> You are running! </span>
+                            </span>
+                        ) : (
+                            <span onClick={handleRun}>
+                                <FontAwesomeIcon icon="fa-solid fa-person-running" className={styles.Icon} />
+                            </span>)}
 
-                                </Col>
-                            </Row>
-                        </Container>
-                    </Card.Body >
-                </Card >
-             
-        </Container>
+                    </Col>
+                </Row>
+            </Card.Body >
+        </Card >
     );
 };
 export default DetailRace
