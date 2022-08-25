@@ -1,18 +1,13 @@
-import React, { useRef, useState, useEffect } from 'react'
-import { Card } from 'react-bootstrap';
+import React, { useState, useEffect } from 'react'
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { axiosReq } from "../../api/axiosDefault";
 import Asset from "../../components/Asset";
-import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container"
-import InfiniteScroll from "react-infinite-scroll-component";
-import { fetchMoreData } from "../../utils/utils";
 import ListRace from "../races/ListRace.js";
 import appStyles from "../../App.module.css";
 import styles from "../../styles/RunsPage.module.css";
-import Map from './Map';
 
 
 function RunsPage() {
@@ -50,7 +45,6 @@ function RunsPage() {
     return (
 
         <Container>
-            {/* <Map></Map> */}
             <Row className={styles.myRaces}>
                 <Col xs={6}>
 

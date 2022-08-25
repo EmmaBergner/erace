@@ -1,10 +1,7 @@
-import { Link } from 'react-router-dom';
-import Avatar from '../../components/Avatar';
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import { useNavigate } from "react-router-dom";
 import { axiosRes } from '../../api/axiosDefault';
 import React, { useState } from "react";
-import { Button } from "react-bootstrap";
 import { Card, Col, Container, Row, } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styles from "../../styles/Comment.module.css";
@@ -15,8 +12,6 @@ const Comment = (props) => {
         text,
         image,
         owner_username,
-        profile_id,
-        profile_image,
         updated_at,
         setComments,
     } = props;

@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Form, Button, Col, Container, Alert, Card, Row } from "react-bootstrap";
+import { Form, Button, Col, Container, Alert, Row } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefault";
 import { useRedirect } from "../../hooks/UseRedirect";
 import CountrySelect from 'react-bootstrap-country-select';
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import styles from "../../styles/CreateRace.module.css";
-import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 
 
@@ -81,6 +80,7 @@ function CreateRace() {
   }
 
   const textFields = (
+    <Container>
     <div className="text-center">
       <Form.Group controlId="name">
         <Form.Label>Race name:</Form.Label>
@@ -139,7 +139,7 @@ function CreateRace() {
         {creating ? "Create" : "Save"}
       </Button>
     </div>
-
+    </Container>
   );
 
   return (

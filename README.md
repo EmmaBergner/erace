@@ -19,7 +19,7 @@ The information, the recomendation is all based and comes from personal experice
 
 #### __Signin Page__
 The login page is the first page a user will see. From here there are two ways to continue:
-- Register a new account in order to sign in. 
+- Go to the sign up page to register a new account in order to sign in. 
 - If already registered simply sign in to get access to the applications features.  
 
 #### __Sign up Page__
@@ -27,20 +27,21 @@ The sign up page is for new users where they fill in information to register a n
 
 
 #### __"Next" Page__
-Once logged in, this is the first page that shows. Here there are two different stages. 
-- First time and before adding any races to "my runs" a message will show with instructions. 
-- After adding a race to "my runs", the race closest in time will be displayed with a countdown of days, hours, minutes and seconds left till that upcoming race. 
+Once logged in, this is the landing page. Here there are two different stages. 
+- First time and before any races have been added to "my runs" a message will show with instructions. 
+- After adding races to "my runs", the race closest in time will be displayed with a countdown of days, hours, minutes and seconds left  to the start of the race. 
 
 #### __Races Page__
 The race page shows a list of all races added by users. 
 - This list gives users a quick overview about each race with: 
 Name of the race, distance, date and country. 
-- From here, user are able to go to detail page. 
-- Users are able to like a race by clicking the star it will then be easy to find later on.
-- There are three filter features users can choose from. 
-- Users can search on a country. A dropdown list of countries will appear and make it easier for users to select the correct country. 
+- From here, user are able to go to detail page of any of the listed races. 
+- Users are able to like a race by clicking the star, it will then be easy to find later on.
+
+There are three filter features users can choose from. 
+- Users can search on a country. A dropdown list of countries will appear and make it easy for users to select the correct country. 
 - Users can select "liked races" and only liked races will show in the list. 
-- Users can select "upcoming races" and only upcoming races will show up in the list; passed races will not show, when this is marked. 
+- Users can select "upcoming races" and only upcoming races will show up in the list; passed races will not show. 
 
 
 #### __Detail Page__
@@ -52,15 +53,15 @@ Users who want to read more about a specific race, can click the race name on th
 - The user who added the specific race can edit and update the basic information. 
 
 #### __Add Race Page__
-The adding race page is where users add races that are not already in the database. The destructore on the page emphazise things that are important to think about when adding a race: 
+The Add Race page is where users add races that are not already in the database. The instructors on the page emphazise things that are important to think about when adding a race: 
 - The spelling of the name of the race.
 - That the country, distance, website, date and time all are accureatly filled in.
 - The information provided is public and everyone using the application will take part of what is written. 
-- A user can click create or cancel and will be redirected to latest visited.
+- A user can click create or cancel and will be redirected to latest visited page.
 
 
 #### __My Runs Page__
-This is the users personal page and for users to have a overview of pased and upcoming races. After marking races to run, the race will then be displayed on My Runs Page. User can click the race name and the detail page then shows up.
+This is the users personal page and for users to have a overview of passed and upcoming races. After marking races to run, the race will then be displayed on the My Runs Page. User can click the race name and the detail page then shows up.
 
 ### Future Features
 There are many ways to extend the capabilities of the service. For instance I would like to add: 
@@ -93,11 +94,11 @@ __Users__
 ## Design  
 __Color Scheme__
 
-I wanted to keep the color scheme simple for this project so I chose i minimum of colors (that work nicely together). Two dark colors, two pop colors and one light color. 
+I wanted to keep the color scheme simple for this project so I chose i minimum of colors (that work nicely together).
 
 __Favicon__ 
 
-The favicon has the same color as the Q in the logo and was created with the webserver icons8. 
+The favicon was created with the webserver icons8. 
 
 __Wireframes__
 
@@ -106,10 +107,11 @@ I created my wireframes and the design using Figma.
 
 ## Technologies Used
 ### Languages Used
+- React 
 - HTML 
 - CSS
 - Python 
-- JavaScript 
+- JavaScript (JSX)
 
 ## Frameworks, Libraries and Programmes Used
 - __GitHub__

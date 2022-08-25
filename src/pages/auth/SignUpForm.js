@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Form, Button, Image, Col, Row, Container, Alert } from "react-bootstrap";
+import { Form, Button, Col, Row, Container, Alert } from "react-bootstrap";
 import axios from "axios";
 import { useRedirect } from "../../hooks/UseRedirect";
 import styles from "../../styles/SignInUpForm.module.css";

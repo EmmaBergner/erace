@@ -1,6 +1,5 @@
 import React from "react";
 import { Card, Col, Container, Row, } from 'react-bootstrap';
-import { axiosRes } from '../../api/axiosDefault';
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { useNavigate } from "react-router-dom";
 import { handleActivate, handleDeactivate } from "../../utils/utils";
@@ -11,7 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const ListRace = (props) => {
     const {
-        id, star_id, run_id, owner, name, distance, country, date, website, created_at, updated_at, like_id, setRaces, showStar
+        id, star_id, owner, name, distance, country, date, setRaces, showStar
     } = props;
 
     const currentUser = useCurrentUser();

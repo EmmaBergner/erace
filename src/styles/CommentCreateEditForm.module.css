@@ -8,6 +8,7 @@
     border: 1px var(--border) solid;
     padding: 10px;
     width: 100%;
+    /* background-color: var(--card); */
   }
   .addInsp {
     font-size: 14px;

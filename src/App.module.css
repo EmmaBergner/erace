@@ -1,10 +1,10 @@
 :root {
   --background: #f6f7f8;
-  --text: #2a1c0a;
+  --text: #3a3023;
   --nav_button_active: #f69b2c;
   --nav_button_hover: #f3751b;
   --nav_button: #67543c;
-  --button: #c9bcac;
+  --button: #c5ac8e;
   --button_hover: #d6d0ca;
   --border: #d6d0ca;
   --link: #098777;
@@ -14,6 +14,7 @@
   --credit: #c1c1c5;
 
 }
+
 
 .App {
   font-family: "Nunito Sans", "Roboto", "DM Sans", sans-serif;

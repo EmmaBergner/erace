@@ -1,15 +1,10 @@
 import React, { useRef, useState } from "react";
-import { Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";
-import InputGroup from "react-bootstrap/InputGroup";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefault";
-import Image from 'react-bootstrap/Image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Col, Container, Row } from "react-bootstrap";
 import styles from "../../styles/CommentCreateEditForm.module.css";
-import btnStyles from "../../styles/Button.module.css";
 
 function CommentCreateForm(props) {
   const { race, setRace, setComments, profileImage, profile_id } = props;
