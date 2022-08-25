@@ -95,14 +95,18 @@ __Users__
 __Color Scheme__
 
 I wanted to keep the color scheme simple for this project so I chose i minimum of colors (that work nicely together).
+ ![Favicon](src/api/assets/ReadME/colors.png)
 
 __Favicon__ 
 
 The favicon was created with the webserver icons8. 
 
+ ![Favicon](src/api/assets/ReadME/favico.png)
+
 __Wireframes__
 
 I created my wireframes and the design using Figma. 
+
 
 
 ## Technologies Used

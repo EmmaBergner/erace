@@ -41,7 +41,6 @@ function RaceDetailPage() {
     return (
         <>
             <Row className="h-100">
-
                 <Col lg={8}>
                     <Container className={styles.Content}>
                         <Row className="h-100">

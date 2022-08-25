@@ -5,14 +5,11 @@ import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 import appStyles from "../../App.module.css";
 import styles from "../../styles/RaceListPage.module.css";
-import { useLocation } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefault";
 import Asset from "../../components/Asset";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import ListRace from "./ListRace.js";
-import { useNavigate } from "react-router-dom";
-import CountrySelect from 'react-bootstrap-country-select';
 
 
 const RaceListPage = ({ message, filter = "" }) => {
@@ -21,17 +18,11 @@ const RaceListPage = ({ message, filter = "" }) => {
 
     const [hasLoaded, setHasLoaded] = useState(false);
 
-    const { pathname } = useLocation();
-
-    const [query, setQuery] = useState("");
-
     const [country, setCountry] = useState("")
 
     const [starOnly, setStarOnly] = useState(false)
 
     const [upcoming, setUpcoming] = useState(false)
-
-    const navigate = useNavigate();
 
     const fetchRaces = async () => {
         try {
@@ -89,7 +80,7 @@ const RaceListPage = ({ message, filter = "" }) => {
                         <Row>
 
                             <Col md={4} xs={12}>
-                                <CountrySelect value={country} onChange={(c) => setCountry(c?.id)}
+                                <Form.Control type= "text" value={country} onChange={(event) => setCountry(event.value)}
                                 />
                             </Col>
 

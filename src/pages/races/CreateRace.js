@@ -3,7 +3,6 @@ import { Form, Button, Col, Container, Alert, Row } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefault";
 import { useRedirect } from "../../hooks/UseRedirect";
-import CountrySelect from 'react-bootstrap-country-select';
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import styles from "../../styles/CreateRace.module.css";
 import btnStyles from "../../styles/Button.module.css";
@@ -12,8 +11,6 @@ import btnStyles from "../../styles/Button.module.css";
 function CreateRace() {
   useRedirect('loggedOut')
   const [errors, setErrors] = useState({});
-
-  const [value, setValue] = useState(null);
 
   const { id } = useParams();
 
@@ -33,13 +30,6 @@ function CreateRace() {
     });
   };
 
-  const handleCountryChange = (value) => {
-    if (value) console.log("value >>> " + JSON.stringify(value))
-    setRaceData({
-      ...raceData,
-      country: value ? value.id : null,
-    });
-  };
 
   const creating = id == null
 
@@ -91,12 +81,14 @@ function CreateRace() {
           onChange={handleChange}
           placeholder="Stockholm Halfmarathon"
         />
-        <Form.Label>Country:</Form.Label>
-        <CountrySelect
-          value={country}
-          onChange={(c) => handleCountryChange(c)}
-        />
 
+        <Form.Label>Country:</Form.Label>
+        <Form.Control className={styles.Input}
+          type="text"
+          name="country"
+          value={country}
+          onChange={handleChange}
+        />
         <Form.Label>Date:</Form.Label>
         <Form.Control className={styles.Input}
           type="date"
