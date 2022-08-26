@@ -62,8 +62,7 @@ export const CurrentUserProvider = ({ children }) => {
                 if (shouldRefreshToken()) {
                     try {
                         console.log("axiosReq", "Post refresh");
-                        // EB TEMPORARY
-                        //await axios.post("/dj-rest-auth/token/refresh/");
+                        await axios.post("/dj-rest-auth/token/refresh/");
                     } catch (err) {
                         console.log("axiosReq", "Refresh failed", err);
                         setCurrentUser((prevCurrentUser) => {
