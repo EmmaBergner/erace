@@ -6,7 +6,6 @@
   margin-top: 10px;
   font-size: 16px;
   color: var(--text);
-  
 }
 
 
@@ -14,12 +13,11 @@
   font-weight: lighter;
   color: var(--credit);
   font-size: 12px;
-  vertical-align: bottom;
+
  }
 
 .Text {
   padding-top: 10px;
-  margin-left: 30px;
 }
 
  

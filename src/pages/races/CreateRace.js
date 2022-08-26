@@ -36,7 +36,7 @@ function CreateRace() {
   useEffect(() => {
     const handleMount = async () => {
       try {
-        if (creating) {return}
+        if (creating) { return }
         const { data } = await axiosReq.get(`/races/${id}`)
         setRaceData({
           ...data,
@@ -70,67 +70,68 @@ function CreateRace() {
   }
 
   const textFields = (
-    <Container>
-    <div className="text-center">
-      <Form.Group controlId="name">
-        <Form.Label>Race name:</Form.Label>
-        <Form.Control className={styles.Input}
-          type="text"
-          name="name"
-          value={name}
-          onChange={handleChange}
-          placeholder="Stockholm Halfmarathon"
-        />
+    <Container className={styles.InputForm}>
+      <div className="text-center">
+        <Form.Group controlId="name">
+          <Form.Label>Race name:</Form.Label>
+          <Form.Control className={styles.Input}
+            type="text"
+            name="name"
+            value={name}
+            onChange={handleChange}
+            placeholder="Stockholm Halfmarathon"
+          />
 
-        <Form.Label>Country:</Form.Label>
-        <Form.Control className={styles.Input}
-          type="text"
-          name="country"
-          value={country}
-          onChange={handleChange}
-        />
-        <Form.Label>Date:</Form.Label>
-        <Form.Control className={styles.Input}
-          type="date"
-          name="date"
-          value={date}
-          onChange={handleChange}
-        />
-        <Form.Label>Time:</Form.Label>
-        <Form.Control className={styles.Input}
-          type="time"
-          name="time"
-          value={time}
-          onChange={handleChange}
-        />
-        <Form.Label>Distance:</Form.Label>
-        <Form.Control className={styles.Input}
-          type="number"
-          name="distance"
-          value={distance}
-          onChange={handleChange}
-          placeholder="21.1 K"
-        />
-        <Form.Label>Official website:</Form.Label>
-        <Form.Control className={styles.Input}
-          type="text"
-          name="website"
-          value={website}
-          onChange={handleChange}
-          placeholder="www.stockholmhalvmarathon.se/"
+          <Form.Label>Country:</Form.Label>
+          <Form.Control className={styles.Input}
+            type="text"
+            name="country"
+            value={country}
+            onChange={handleChange}
+            placeholder="Sweden"
+          />
+          <Form.Label>Date:</Form.Label>
+          <Form.Control className={styles.Input}
+            type="date"
+            name="date"
+            value={date}
+            onChange={handleChange}
+          />
+          <Form.Label>Time:</Form.Label>
+          <Form.Control className={styles.Input}
+            type="time"
+            name="time"
+            value={time}
+            onChange={handleChange}
+          />
+          <Form.Label>Kilometers:</Form.Label>
+          <Form.Control className={styles.Input}
+            type="number"
+            name="distance"
+            value={distance}
+            onChange={handleChange}
+            placeholder="21"
+          />
+          <Form.Label>Official website:</Form.Label>
+          <Form.Control className={styles.Input}
+            type="text"
+            name="website"
+            value={website}
+            onChange={handleChange}
+            placeholder="www.stockholmhalvmarathon.se/"
 
-        />
-      </Form.Group>
-      {errors.name?.map((message, idx) =>
-        <Alert variant="warning" key={idx}>{message}</Alert>)}
+          />
+        </Form.Group>
+        {errors.name?.map((message, idx) =>
+          <Alert variant="warning" key={idx}>{message}</Alert>)}
 
-      <Button className={`${btnStyles.Button} ${btnStyles.Blue}`}  onClick={() => { navigate(-1) }} >
-        Cancel
-      </Button>
-      <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
-        {creating ? "Create" : "Save"}
-      </Button>
-    </div>
+        <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} onClick={() => { navigate(-1) }} >
+          Cancel
+        </Button>
+        <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
+          {creating ? "Create" : "Save"}
+        </Button>
+      </div>
     </Container>
   );
 
@@ -139,10 +140,16 @@ function CreateRace() {
       <Form onSubmit={handleSubmit}>
         <Row>
           <Col md={4}>
-            Enter details about your upcoming race!
 
-            Before adding your race, go to Races and to see if it's not added already.
-            All feilds are requierd...
+            <p>
+              Enter details about your upcoming race and add it to the database!
+            </p>
+            <p>
+              But please before adding a new race, go to Races and make sure it hasn't been added already.
+            </p>
+            <p>
+              (All feilds are requierd)
+            </p>
           </Col>
           <Col md={5} lg={4}>
             <Container>{textFields}
@@ -155,21 +162,14 @@ function CreateRace() {
       <Form onSubmit={handleSubmit}>
         <Row>
           <Col md={4}>
-            You can edit this race with updates!
-            <Row>
-              <Col className={styles.addText}>
-                Before saving,
-                Check that everything is accurate.
-                The spelling for the name of the race.
-                The country, distance, and website, date and time.
-
-                Please remmember, this is public informaton.
-              </Col>
-
-            </Row>
-
+            <p>
+              You can edit this race to correct errors.
+            </p>
+            <p>
+              But please do not change it into another race since that will upset your fellow users.
+            </p>
           </Col>
-          <Col md={3} lg={4}>
+          <Col md={5} lg={4}>
             <Container>{textFields}
 
             </Container>

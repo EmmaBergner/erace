@@ -49,7 +49,7 @@ const ListRace = (props) => {
 
                             <Row>
                                 <Col className={styles.raceCountry}>
-                                    {country ? regionNames.of(country.toUpperCase()) : ""}
+                                    {country}
                                 </Col>
                             </Row>
                         </Col>

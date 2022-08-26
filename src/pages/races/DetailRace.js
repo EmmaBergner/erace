@@ -10,13 +10,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const DetailRace = (props) => {
     const {
-        id, star_id, run_id, owner, name, distance, country, date, website, owner_username, updated_at, setRace,
+        id, star_id, run_id, owner, name, distance, country, date, website, owner_username: ownerUsername, updated_at, setRace,
     } = props;
 
-    console.log(id, star_id, run_id, owner, name, distance, country, date,)
     const currentUser = useCurrentUser();
 
-    const is_owner = currentUser?.username === owner
+    const isOwner = currentUser?.pk === owner
 
     const navigate = useNavigate();
 
@@ -77,28 +76,32 @@ const DetailRace = (props) => {
                                     </span>)}
                             </Col>
                             <Col xs={2}>
-                                <FontAwesomeIcon icon="fa-regular fa-pen-to-square" onClick={() => navigate(`/races/edit/${id}`)} />
+                                {isOwner ? (
+                                    <FontAwesomeIcon icon="fa-regular fa-pen-to-square" onClick={() => navigate(`/races/edit/${id}`)} />
+                                )
+                                :
+                                null}
                             </Col>
                         </Row>
 
                         <Row>
-                            <Col xs={4} sm={4}> Country: </Col>
-                            <Col> {country ? regionNames.of(country.toUpperCase()) : ""} </Col>
+                            <Col xs={4} sm={4}>Country: </Col>
+                            <Col> {country} </Col>
                         </Row>
                         <Row>
-                            <Col xs={4} sm={4}> Distance: </Col>
-                            <Col> {distance} k </Col>
+                            <Col xs={4} sm={4}>Distance:</Col>
+                            <Col> {distance} kilometers </Col>
                         </Row>
 
                         <Row>
-                            <Col xs={4} sm={4}> Date:  </Col>
+                            <Col xs={4} sm={4}>Date:</Col>
                             <Col>
                                 {new Date(date).toDateString()}
                             </Col>
                         </Row>
 
                         <Row>
-                            <Col xs={4} sm={4}> Time:  </Col>
+                            <Col xs={4} sm={4}>Time:</Col>
                             <Col>
                                 {new Date(date).toLocaleTimeString()}
                             </Col>
@@ -112,7 +115,7 @@ const DetailRace = (props) => {
 
                             </Col>
                         </Row>
-                        <span className={styles.creadit}> Posted by {owner_username} at {updated_at}</span>
+                        <span className={styles.creadit}> Posted by {ownerUsername} at {updated_at}</span>
 
                     </Col>
                 </Row>

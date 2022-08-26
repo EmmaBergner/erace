@@ -9,9 +9,14 @@
 }
 
 .Welcome {
-    align-items: center;
-    font-size: 16px;
+    font-size: 12px;
     color: var(--text);
+    padding: 15px;
+}
+
+.Info {
+    padding: 15px;
+    font-size: 14px;
 }
 
 .Label {

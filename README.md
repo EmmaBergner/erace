@@ -2,12 +2,14 @@
 #eRace 
 
 __Live Site:__
-[eRace](https://emmabergner.github.io/blink/) 
+[eRace](https://erace-client.herokuapp.com/) 
 
 As a runner, you become part of a global community. A running race can bring together participants from all over the world to compete with and motivate each other runners.
 
 eRace is a web browser application where runners can find and share running races happening in the world.
 We let running athletes quickly find new races and provide a platform where runners can spread and share running races happening over the world. Whether you are looking for a picturesque trail run near you, or going for a holiday and want to find a run in that specific country, you can find or add it here.
+
+![Ami](src/api/assets/ReadME/ami.png)
 
 ## Why use our app?
 The information, the recomendation is all based and comes from personal expericenes. 
@@ -15,7 +17,6 @@ The information, the recomendation is all based and comes from personal experice
 
 ## Features
 ### The Business Interface
-
 
 #### __Signin Page__
 The login page is the first page a user will see. From here there are two ways to continue:
@@ -94,18 +95,18 @@ __Users__
 ## Design  
 __Color Scheme__
 
-I wanted to keep the color scheme simple for this project so I chose i minimum of colors (that work nicely together).
- ![Favicon](src/api/assets/ReadME/colors.png)
+I wanted to keep the color scheme nice and clean for this project so I chose these colors (that work nicely together).
+ ![Color Scheme](src/api/assets/ReadME/colors.png)
 
 __Favicon__ 
 
 The favicon was created with the webserver icons8. 
-
  ![Favicon](src/api/assets/ReadME/favico.png)
 
 __Wireframes__
-
 I created my wireframes and the design using Figma. 
+ ![Wireframes](src/api/assets/ReadME/wire.png)
+ ![Wireframes](src/api/assets/ReadME/wireframe.png)
 
 
 
@@ -175,5 +176,8 @@ This project was deployed using Github and Heroku.
 
 - Formatting date methods was found [here](https://css-tricks.com/everything-you-need-to-know-about-date-in-javascript/)
 
-- Layout for colums was found [here]( 
-https://getbootstrap.com/docs/4.1/layout/grid/)
+- [W3School](https://www.w3schools.com/) helped me out with CSS code. 
+
+- [Slackoverflow](https://stackoverflow.com/) helped me out with code solutions throughout the project.
+
+- [Getboostrap](https://getbootstrap.com/docs/4.1/layout/grid/)  helped out with colums and rows for the layout.

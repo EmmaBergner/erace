@@ -77,13 +77,9 @@ const RaceListPage = ({ message, filter = "" }) => {
                 <Form className={styles.SearchBar} onSubmit={(event) => event.preventDefault()}>
                     <Container>
                         <Row>
-
                             <Col md={4} xs={12}>
-                                <Form.Control type= "text" value={country} onChange={(event) => setCountry(event.value)}
-                                />
+                                <Form.Control type= "text" value={country} onChange={(event) => setCountry(event.target.value)}/>
                             </Col>
-
-
                             <Col md={2} xs={6}>
                                 <Form.Check type="checkbox" value={starOnly} onChange={(event) => setStarOnly(!starOnly)} label="Liked Races" className={styles.Checkbox} />
                             </Col>

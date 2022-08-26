@@ -41,11 +41,10 @@ const SignUpForm = () => {
         <Container >
             <Row>
                 <Col sm> </Col>
-                <Col>
+                <Col xs={12} sm={8} md={6}>
 
                     <Container>
                         <Row className={styles.Header}>Please fill in the form to sign up</Row>
-
 
                         <Form onSubmit={handleSubmit}>
                             <Form.Group controlId="username">
@@ -85,23 +84,18 @@ const SignUpForm = () => {
                             {errors.password2?.map((message, idx) =>
                                 <Alert variant="warning" key={idx}>{message}</Alert>)}
 
-                            <Button className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Bright}`}
-                                type="submit">
+                            <Button type="submit" className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Bright}`}>
                                 Sign up
                             </Button>
                             {errors.non_field_errors?.map((message, idx) => (
                                 <Alert variant="warning" className="mt-3" key={idx}>{message}
                                 </Alert>
                             ))}
-
                         </Form>
-
                     </Container>
-                    {/* <Container className={`mt-3 ${appStyles.Content}`}> */}
                     <Link className={styles.Link} to="/signin">
                         Have an account? <span>Sign in!</span>
                     </Link>
-                    {/* </Container> */}
                 </Col>
                 <Col sm> </Col>
             </Row>

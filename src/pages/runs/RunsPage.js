@@ -45,6 +45,7 @@ function RunsPage() {
     return (
 
         <Container >
+            <h1 className='text-center'>{currentUser.username}</h1>
             <Row className={styles.myRaces}>
                 <Col xs={6} className="p-0" >
 
@@ -76,7 +77,7 @@ function RunsPage() {
                                 <ListRace key={race.id} {...race}  />
                             )) : (
                                 <Container className={appStyles.Content}>
-                                    Please add some races and run with it!
+                                   Your upcoming races will appear here.
                                 </Container>
                             )}
                     </Col>

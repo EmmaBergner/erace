@@ -4,5 +4,16 @@
 
 .Input {
   margin-bottom: 5px;
-  font-size: 12px;
+  font-size: 14px;
+  color: var(--text);
+
+}
+
+.Input::placeholder {
+  color: var(--credit);
+}
+
+.InputForm {
+  color: var(--text);
+  font-size: 14px;
 }

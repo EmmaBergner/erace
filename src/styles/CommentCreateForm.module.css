@@ -14,19 +14,27 @@
     font-size: 14px;
     text-align: left;
     padding-bottom: 20px;
-    color: var(--credit)
+    color: var(--text)
   }
+
+
 
 .PostButton {
   margin: 5px;
 }
 
 .Icon {
-  color: var(--button);
+  color: var(--text);
 }
 .IconOutline {
   color: var(--nav_button)
+  
 }
+
+.DisableIcon {
+  color: var(--button_disable);
+}
+
 .Icon:hover {
   color: var(--button_hover);
 }
