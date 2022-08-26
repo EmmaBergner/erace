@@ -51,7 +51,7 @@ const Comment = (props) => {
                         Posted by {owner_username} at {updated_at}
                         </Col>
                         <Col xs={2} onClick={handleDelete} className={styles.Trash}>
-                            <FontAwesomeIcon icon="fa-regular fa-trash-can" size="1x" />
+                            <FontAwesomeIcon icon="fa-regular fa-trash-can" size="1x"/>
 
                         </Col>
                     </Row>

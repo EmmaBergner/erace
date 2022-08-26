@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const ListRace = (props) => {
     const {
-        id, star_id, owner, name, distance, country, date, setRaces, showStar
+        id, star_id, owner, name, distance, country, date, setRaces, showStar, padd
     } = props;
 
     const currentUser = useCurrentUser();
@@ -26,14 +26,14 @@ const ListRace = (props) => {
 
     return (
         <Card className={styles.Race}>
-            <Card.Body >
+            <Card.Body className={padd ? "" : "p-2"}>
                 <div className="media align-items-center justify-content-between">
                 </div>
 
                 <Container>
                     <Row>
-                        <Col>
-                            <Row>
+                        <Col className={padd ? "" : "p-0"}>
+                            <Row >
                                 <Col md={5} sm={8} xs={12} className={styles.raceName} onClick={() => navigate(`/races/${id}`)}>
                                     {name}
                                 </Col>

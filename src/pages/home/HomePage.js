@@ -99,21 +99,21 @@ const HomePage = () => {
                     :
                     (
                         <Container className={styles.HomePage}>
-                            <Card.Body>
+                            <Card.Body className="p-1">
                                 <div class="row gx-5">
-                                        <Col sm={3} xs={12}>
+                                        <Col sm={3} xs={3} className="p-0">
                                             {Math.floor(timeLeftSeconds / (60 * 60 * 24))}
                                             <p className={styles.Label}>Days</p>
                                         </Col>
-                                        <Col sm={3} xs={4}>
+                                        <Col sm={3} xs={3} className="p-0">
                                             {Math.floor(timeLeftSeconds % (60 * 60 * 24) / (60 * 60))}
                                             <p className={styles.Label}>Hours</p>
                                             </Col>
-                                        <Col sm={3} xs={4}>
+                                        <Col sm={3} xs={3} className="p-0">
                                             {Math.floor(timeLeftSeconds % (60 * 60) / 60)}
                                             <p className={styles.Label}>Minutes</p>
                                             </Col>
-                                        <Col sm={3} xs={4}>
+                                        <Col sm={3} xs={3} className="p-0">
                                             {Math.floor(timeLeftSeconds % 60)}
                                             <p className={styles.Label}>Seconds</p>
                                             </Col>

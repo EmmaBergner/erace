@@ -79,7 +79,7 @@ function CommentCreateForm(props) {
               <Form.Control type="file" id="image-upload" accept="image/*" onChange={handleChangeImage} ref={imageInput} />
               <Row className={styles.addImage}> </Row>
             </Col>
-            <Col xs={3} sm={2}>
+            <Col xs={3} sm={2} className="p-0">
               {
                 !text.trim() && !image.trim() ? (
                   <FontAwesomeIcon icon={["far", "paper-plane"]} className={styles.IconOutline} />

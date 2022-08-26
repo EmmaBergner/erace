@@ -104,7 +104,7 @@ const RaceListPage = ({ message, filter = "" }) => {
                                     <InfiniteScroll
                                         children={
                                             races.results.map((race) => (
-                                                <ListRace key={race.id} {...race} setRaces={setRaces} showStar />
+                                                <ListRace key={race.id} {...race} setRaces={setRaces} showStar padd />
                                             ))
                                         }
                                         dataLength={races.results.length}

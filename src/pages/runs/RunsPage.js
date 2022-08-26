@@ -44,20 +44,20 @@ function RunsPage() {
 
     return (
 
-        <Container>
+        <Container >
             <Row className={styles.myRaces}>
-                <Col xs={6}>
+                <Col xs={6} className="p-0" >
 
                     Your passed races
                 </Col>
 
-                <Col xs={6}>
+                <Col xs={6} className="p-0">
                     Your upcoming races
                 </Col>
             </Row>
             {hasLoaded ? (
-                <Row>
-                    <Col className={styles.passedInfo} xs={6}>
+                <Row className="p-2" >
+                    <Col  xs={6} className={styles.passedInfo}>
 
                         {passed.length ?
                             passed.map((race) => (
@@ -68,8 +68,8 @@ function RunsPage() {
                                 </Container>
                             )}
                     </Col>
-
-                    <Col xs={6}>
+               
+                    <Col xs={6} >
 
                         {upcoming.length ?
                             upcoming.map((race) => (
@@ -80,6 +80,7 @@ function RunsPage() {
                                 </Container>
                             )}
                     </Col>
+                 
                 </Row>
             ) : (
 

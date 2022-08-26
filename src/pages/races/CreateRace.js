@@ -124,7 +124,7 @@ function CreateRace() {
       {errors.name?.map((message, idx) =>
         <Alert variant="warning" key={idx}>{message}</Alert>)}
 
-      <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} onClick={() => { navigate(-1) }} >
+      <Button className={`${btnStyles.Button} ${btnStyles.Blue}`}  onClick={() => { navigate(-1) }} >
         Cancel
       </Button>
       <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
