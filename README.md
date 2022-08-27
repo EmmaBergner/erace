@@ -69,11 +69,12 @@ This is the users personal page and for users to have a overview of passed and u
 There are many ways to extend the capabilities of the service. For instance I would like to add: 
 - Users can connect with other users 
 - Users can edit and update thier accounts detail
-- Users can see how many other people has liked and pressed running a race. 
+- Users can see how many other people have liked and are running a race
+- Show runs on map
+- Show runs on timeline
 
 ## Project Plan 
 I used Git Project to plan and to follow up with my project. 
-
 
 ### User Stories
 __Authentication__
@@ -106,15 +107,12 @@ I wanted to keep the color scheme nice and clean for this project so I chose the
 
 __Favicon__ 
 
-The favicon was created with the webserver icons8. 
+The favicon was supplied from the webservice icons8. 
  ![Favicon](src/api/assets/ReadME/favico.png)
 
 __Wireframes__
-I created my wireframes and the design using Figma. 
+I created my wireframes and the design for my project using Figma. 
  ![Wireframes](src/api/assets/ReadME/wire.png)
- ![Wireframes](src/api/assets/ReadME/wireframe.png)
-
-
 
 ## Technologies Used
 ### Languages Used
@@ -128,7 +126,9 @@ I created my wireframes and the design using Figma.
 - __GitHub__
     was used to store the code for the project. 
 - __GitPod__
-    was used to provide the programming environment. 
+    was used to some extent to provide the programming environment. 
+-  __Visual Studio Code__ 
+    was used for all coding.
 -  __Heroku__ 
     is a cloud based application platform connected to GitHub, used to deploy this project.
 - __React Bootstrap__
@@ -137,8 +137,6 @@ I created my wireframes and the design using Figma.
     was used to import the font Mali, Nunito Sans and Roboto as the fonts for this project.
 - __Font Awesome__
     was used for some of the icons.
-- __Photoshop:__
-    was used to resize and to edit background image.
 - __Cloudinary:__ 
     was used to store images online.
 - __Git Projects__
@@ -148,31 +146,71 @@ I created my wireframes and the design using Figma.
 
 
 ## Testing 
-### Validator Testing 
-- HTML
-- CSS 
-- PEP8 
-- JavaScript
-- Lighthouse
-
-## Manual Testing 
-The final version was tested by using each function on each page.
+The final version was manualy tested by using each function on each page.
 
 Sign up Page: 
-- 
+- Verify that a new user can sign up. 
+- Verify that an existing username can not be used.
+- Verify that both password entered must match with each other. 
+- Verify that the "sign in" link works. 
 
-Sig in Page: 
+Sign in Page: 
+- Verify that both correct sign in and incorrect sign in are handled. 
+- Verify that the "sign up" link works.
 
-Next Page: 
+Next Tab: 
+- Verify that the instruction text is displayed when the user has no runs. 
+- Verify that next upcoming race is displayed. 
+- Verify that the remaining time is correct and continuosly updated.
 
-Races Page: 
+Races Tab: 
+- Verify that all races in the database are displayed if no filters are applied.
+- Verify that filters work correctly.
+- Verify that races are sorted by date ascending.
+- Verify like and unlike. 
+- Verify that race links to detail page. 
 
 Detail Page: 
+- Verify running and not running. 
+- Verify all information is correctly displayed.
+- Verify that the race can be edited by the owner only.
+- Verify like and unlike.  
+- Verify that comments (text and/or image) can be created. 
+- Verify comments are corretly displayed. 
+- Verify comments are sorted by date descending.
+- Verify that comments can be deleted by the owner only. 
 
-Runs Page:
+Edit Race Page:
+- Verify that the instruction text is displayed. 
+- Verify all information is correctly displayed.
+- Verify that the user is notifed of empty fields.
+- Verify that the race is modified correctly. 
+- Verify that the cancel button works. 
+
+Add Race Tab:
+- Verify that the instruction text is displayed. 
+- Verify that the user is notifed of empty fields.
+- Verify that the race is created corretly. 
+- Verify that the cancel button works. 
+
+Runs Tab:
+- Verify that the instruction text is displayed when the user has no runs.
+- Verify that the logged in user's username is displayed. 
+- Verify that passed runs are correctly displayed in descending order.
+- Verify that upcoming runs are corretly displayed in ascending order. 
+- Verify that races link to detail page.  
+
+Sign Out Tab:
+- Verify that the user's session ends. 
+- Verify that the sign in page is displayed. 
+
+Test were preformed using Chrome and FireFox. 
 
 ## Bugs Found
 No known bugs. 
+
+## Pre-deployment checklist
+- Configured axios to use the deployed server api. 
 
 ## Deployment
 This project was deployed using Github and Heroku.

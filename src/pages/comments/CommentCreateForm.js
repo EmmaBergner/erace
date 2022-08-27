@@ -37,7 +37,6 @@ function CommentCreateForm(props) {
         formData.append("image", imageInput.current.files[0])
       }
 
-      console.log(formData)
       const { data } = await axiosRes.post("/comments/", formData);
       setComments((prevComments) => ({
         ...prevComments,

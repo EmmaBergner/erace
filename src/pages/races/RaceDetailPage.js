@@ -21,7 +21,6 @@ function RaceDetailPage() {
 
     useEffect(() => {
         const handleMount = async () => {
-            console.log(">>> 2")
             try {
                 const [{ data: r }, { data: c }] = await Promise.all([
                     axiosReq.get(`/races/${id}`),

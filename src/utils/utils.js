@@ -54,7 +54,6 @@ export const handleActivate = async (path, idProp, id, setRaces, currentUser) =>
 export const setTokenTimestamp = (data) => {
     const refreshTokenTimestamp = jwtDecode(data?.refresh_token).exp;
     localStorage.setItem("refreshTokenTimestamp", refreshTokenTimestamp);
-    console.log("Set token timestamp", refreshTokenTimestamp)
 };
 
 export const shouldRefreshToken = () => {
@@ -63,6 +62,5 @@ export const shouldRefreshToken = () => {
 
 export const removeTokenTimestamp = () => {
     localStorage.removeItem("refreshTokenTimestamp");
-    console.log("Removed token timestamp")
 };
 

@@ -23,7 +23,6 @@ function CreateRace() {
   const navigate = useNavigate();
 
   const handleChange = (event) => {
-    console.log("event >>> " + event)
     setRaceData({
       ...raceData,
       [event.target.name]: event.target.value,
@@ -173,7 +172,6 @@ function CreateRace() {
         </Col>
       </Row>
     </Form>
-
   ) : (
     <Form onSubmit={handleSubmit}>
       <Row>
@@ -188,14 +186,9 @@ function CreateRace() {
         <Col md={5} lg={4}>
           <Container>
             {textFields}
-
-
           </Container>
         </Col>
-
-
       </Row>
-
     </Form>
   ));
 }

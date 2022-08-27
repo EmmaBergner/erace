@@ -17,11 +17,9 @@ export const CurrentUserProvider = ({ children }) => {
         try {
             const { data } = await axiosRes.get('dj-rest-auth/user/')
             if (data) {
-                console.log("CurrentUserProvider", "User", data.username);
                 setCurrentUser(data)
             }
             else {
-                console.log("CurrentUserProvider", "No  user");
                 setCurrentUser((prevCurrentUser) => {
                     if (prevCurrentUser) {
                         navigate("/signin");
@@ -31,19 +29,13 @@ export const CurrentUserProvider = ({ children }) => {
 
             }
         } catch (err) {
-            if (err?.response?.status !== 401) {
-                console.log("CurrentUserProvider", "Not signed out", err);
-            }
-            else {
-                console.log("CurrentUserProvider", "Signed out", err);
-                setCurrentUser((prevCurrentUser) => {
-                    if (prevCurrentUser) {
-                        navigate("/signin");
-                    }
-                    return null;
-                })
-                navigate("/signin")
-            }
+            setCurrentUser((prevCurrentUser) => {
+                if (prevCurrentUser) {
+                    navigate("/signin");
+                }
+                return null;
+            })
+            navigate("/signin")
         }
     };
 
@@ -52,8 +44,6 @@ export const CurrentUserProvider = ({ children }) => {
         // eslint-disable-next-line
     }, []);
 
-    //////////////////// Interceptors /////////////////// 
-
     const navigate = useNavigate();
 
     useMemo(() => {
@@ -61,10 +51,8 @@ export const CurrentUserProvider = ({ children }) => {
             async (config) => {
                 if (shouldRefreshToken()) {
                     try {
-                        console.log("axiosReq", "Post refresh");
                         await axios.post("/dj-rest-auth/token/refresh/");
                     } catch (err) {
-                        console.log("axiosReq", "Refresh failed", err);
                         setCurrentUser((prevCurrentUser) => {
                             if (prevCurrentUser) {
                                 navigate("/signin");
@@ -87,10 +75,8 @@ export const CurrentUserProvider = ({ children }) => {
             async (err) => {
                 if (err.response?.status === 401) {
                     try {
-                        console.log("axiosRes", "Post refresh", err);
                         await axios.post("/dj-rest-auth/token/refresh/");
                     } catch (err) {
-                        console.log("axiosRes", "Refresh failed", err);
                         setCurrentUser((prevCurrentUser) => {
                             if (prevCurrentUser) {
                                 navigate("/signin");
@@ -105,8 +91,6 @@ export const CurrentUserProvider = ({ children }) => {
             }
         );
     }, [navigate]);
-
-    ///////////// End interceptors ///////////////////
 
     return (
         <CurrentUserContext.Provider value={currentUser}>

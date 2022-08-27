@@ -37,7 +37,6 @@ const HomePage = () => {
     const fetchRaces = async () => {
         try {
             const { data } = await axiosReq.get(`/races?runs__owner__profile=${profile_id}`);
-            console.log("NEXT", JSON.stringify(data))
             if (data.results.length > 0) {
                 const nr = calculateNext(data.results)
                 setNextRace(nr)
@@ -47,10 +46,9 @@ const HomePage = () => {
                     setTimeLeftSeconds(start - now)
                 }
             }
-            console.log("NEXT loaded")
             setHasLoaded(true)
         } catch (err) {
-            console.log("Home page", "fetchRaces", err)
+            console.log(err)
         }
     }
 
