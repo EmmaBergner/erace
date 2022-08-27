@@ -7,12 +7,10 @@ import appStyles from "../../App.module.css";
 import styles from "../../styles/RaceListPage.module.css";
 import { axiosReq } from "../../api/axiosDefault";
 import Asset from "../../components/Asset";
-import InfiniteScroll from "react-infinite-scroll-component";
-import { fetchMoreData } from "../../utils/utils";
 import ListRace from "./ListRace.js";
 
 
-const RaceListPage = ({ message, filter = "" }) => {
+const RaceListPage = () => {
 
     const [races, setRaces] = useState({ results: [] });
 
@@ -31,6 +29,7 @@ const RaceListPage = ({ message, filter = "" }) => {
             if (upcoming) {
                 data.results = filterUpcoming(data.results)
             }
+            data.results.sort((r1, r2) => r1.date.localeCompare(r2.date))
             setRaces(data)
             setHasLoaded(true)
         } catch (err) {
@@ -96,18 +95,10 @@ const RaceListPage = ({ message, filter = "" }) => {
                     <Col md={8}>
                         {hasLoaded ? (
                             <>
-                                {races.results.length ? (
-                                    <InfiniteScroll
-                                        children={
-                                            races.results.map((race) => (
-                                                <ListRace key={race.id} {...race} setRaces={setRaces} showStar padd />
-                                            ))
-                                        }
-                                        dataLength={races.results.length}
-                                        loader={<Asset spinner />}
-                                        hasMore={!!races.next}
-                                        next={() => fetchMoreData(races, setRaces)}
-                                    />
+                                {races.results.length ? 
+                                    races.results.map((race) => (
+                                        <ListRace key={race.id} {...race} setRaces={setRaces} showStar padd />
+                                    )
                                 ) : (
                                     <Container className={appStyles.Content}>
                                         Please add some races and run with it!

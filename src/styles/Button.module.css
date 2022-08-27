@@ -2,7 +2,6 @@
     font-size: 14px;
     align-self: center;
     border-radius: 10px;
-    border-color: transparent;
     padding: 4px 10px;
     margin-left: 2px;
     margin-right: 2px;
@@ -11,7 +10,9 @@
     color: var(--text);
   }
   
-
+  .Spacer {
+margin-top: 20px;
+  }
   .Wide {
     padding: 10px 50px;
     width: 100%;
@@ -21,3 +22,9 @@
     background-color: var(--button_hover);
   }
   
+  .Button:active {
+    background-color: var(--button);
+  }
+  .Button:focus {
+    background-color: var(--button);
+  }

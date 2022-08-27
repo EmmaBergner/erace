@@ -15,20 +15,6 @@ export const fetchMoreData = async (resource, setResource) => {
     } catch (err) { }
 };
 
-export const followHelper = (profile, clickedProfile, following_id, follow) => {
-    console.log(follow);
-    return profile.id === clickedProfile.id ?
-        {
-            ...profile,
-            followers_count: profile.followers_count + (follow ? 1 : -1),
-            following_id: follow ? following_id : null
-        }
-        : profile.is_owner ?
-            { ...profile, following_count: profile.following_count + (follow ? 1 : -1) }
-            :
-            profile;
-}
-
 export const handleDeactivate = async (path, idProp, idValue, id, setRaces) => {
     try {
         await axiosRes.delete(path + idValue);

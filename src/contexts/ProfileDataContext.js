@@ -1,7 +1,6 @@
 
 import { createContext, useContext, useEffect, useState } from "react";
-import { axiosReq, axiosRes } from "../api/axiosDefault";
-import { followHelper } from "../utils/utils";
+import { axiosReq } from "../api/axiosDefault";
 import { useCurrentUser } from './CurrentUserContext';
 
 export const ProfileDataContext = createContext();
@@ -14,32 +13,10 @@ export const ProfileDataProvider = ({ children }) => {
 
     const currentUser = useCurrentUser();
 
-    const handleFollow = async (clickedProfile, follow) => {
-        try {
-            const { data } = follow ?
-                await axiosRes.post('/followers/', { followed: clickedProfile.id })
-                : await axiosRes.delete(`/followers/${clickedProfile.following_id}/`)
-            setProfileData(prevState => ({
-                ...prevState,
-                pageProfile: {
-                    results: prevState.pageProfile.results.map(profile => followHelper(profile, clickedProfile, data.id, follow))
-                },
-                popularProfiles: {
-                    ...prevState.popularProfiles,
-                    results: prevState.popularProfiles.results.map(profile => followHelper(profile, clickedProfile, data.id, follow))
-                }
-            }))
-
-        } catch (err) {
-            console.log(err)
-        }
-    }
-
     const [profileData, setProfileData] = useState({
         pageProfile: { results: [] },
         popularProfiles: { results: [] },
     });
-
 
     useEffect(() => {
         const handleMount = async () => {
@@ -60,7 +37,7 @@ export const ProfileDataProvider = ({ children }) => {
 
     return (
         <ProfileDataContext.Provider value={profileData}>
-            <SetProfileDataContext.Provider value={{ setProfileData, handleFollow }}>
+            <SetProfileDataContext.Provider value={{ setProfileData }}>
                 {children}
             </SetProfileDataContext.Provider>
         </ProfileDataContext.Provider>

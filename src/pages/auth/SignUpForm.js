@@ -84,7 +84,7 @@ const SignUpForm = () => {
                             {errors.password2?.map((message, idx) =>
                                 <Alert variant="warning" key={idx}>{message}</Alert>)}
 
-                            <Button type="submit" className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Bright}`}>
+                            <Button variant="light" type="submit" className={`${btnStyles.Button} ${btnStyles.Wide}`}>
                                 Sign up
                             </Button>
                             {errors.non_field_errors?.map((message, idx) => (

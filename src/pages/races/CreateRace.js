@@ -81,6 +81,8 @@ function CreateRace() {
             onChange={handleChange}
             placeholder="Stockholm Halfmarathon"
           />
+          {errors.name?.map((message, idx) =>
+            <Alert variant="warning" key={idx}>{message}</Alert>)}
 
           <Form.Label>Country:</Form.Label>
           <Form.Control className={styles.Input}
@@ -90,6 +92,9 @@ function CreateRace() {
             onChange={handleChange}
             placeholder="Sweden"
           />
+          {errors.country?.map((message, idx) =>
+            <Alert variant="warning" key={idx}>{message}</Alert>)}
+
           <Form.Label>Date:</Form.Label>
           <Form.Control className={styles.Input}
             type="date"
@@ -97,6 +102,11 @@ function CreateRace() {
             value={date}
             onChange={handleChange}
           />
+          {errors.date ?
+            (<Alert variant="warning">This field may not be blank.</Alert>)
+            : null
+          }
+
           <Form.Label>Time:</Form.Label>
           <Form.Control className={styles.Input}
             type="time"
@@ -104,6 +114,11 @@ function CreateRace() {
             value={time}
             onChange={handleChange}
           />
+          {errors.date ?
+            (<Alert variant="warning">This field may not be blank.</Alert>)
+            : null
+          }
+
           <Form.Label>Kilometers:</Form.Label>
           <Form.Control className={styles.Input}
             type="number"
@@ -112,6 +127,9 @@ function CreateRace() {
             onChange={handleChange}
             placeholder="21"
           />
+          {errors.distance?.map((message, idx) =>
+            <Alert variant="warning" key={idx}>{message}</Alert>)}
+
           <Form.Label>Official website:</Form.Label>
           <Form.Control className={styles.Input}
             type="text"
@@ -119,69 +137,67 @@ function CreateRace() {
             value={website}
             onChange={handleChange}
             placeholder="www.stockholmhalvmarathon.se/"
-
           />
-        </Form.Group>
-        {errors.name?.map((message, idx) =>
-          <Alert variant="warning" key={idx}>{message}</Alert>)}
+          {errors.website?.map((message, idx) =>
+            <Alert variant="warning" key={idx}>{message}</Alert>)}
 
-        <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} onClick={() => { navigate(-1) }} >
+        </Form.Group>
+        <Button variant="light" className={`${btnStyles.Button} ${btnStyles.Spacer}`} onClick={() => { navigate(-1) }} >
           Cancel
         </Button>
-        <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
+        <Button variant="light" className={`${btnStyles.Button} ${btnStyles.Spacer}`} type="submit">
           {creating ? "Create" : "Save"}
         </Button>
       </div>
     </Container>
   );
 
-  return (
-    creating ? (
-      <Form onSubmit={handleSubmit}>
-        <Row>
-          <Col md={4}>
+  return (creating ? (
+    <Form onSubmit={handleSubmit}>
+      <Row>
+        <Col md={4}>
 
-            <p>
-              Enter details about your upcoming race and add it to the database!
-            </p>
-            <p>
-              But please before adding a new race, go to Races and make sure it hasn't been added already.
-            </p>
-            <p>
-              (All feilds are requierd)
-            </p>
-          </Col>
-          <Col md={5} lg={4}>
-            <Container>{textFields}
-            </Container>
-          </Col>
-        </Row>
-      </Form>
+          <p>
+            Enter details about your upcoming race and add it to the database!
+          </p>
+          <p>
+            But please before adding a new race, go to Races and make sure it hasn't been added already.
+          </p>
+          <p>
+            (All fields are required)
+          </p>
+        </Col>
+        <Col md={5} lg={4}>
+          <Container>{textFields}
+          </Container>
+        </Col>
+      </Row>
+    </Form>
 
-    ) : (
-      <Form onSubmit={handleSubmit}>
-        <Row>
-          <Col md={4}>
-            <p>
-              You can edit this race to correct errors.
-            </p>
-            <p>
-              But please do not change it into another race since that will upset your fellow users.
-            </p>
-          </Col>
-          <Col md={5} lg={4}>
-            <Container>{textFields}
-
-            </Container>
-          </Col>
+  ) : (
+    <Form onSubmit={handleSubmit}>
+      <Row>
+        <Col md={4}>
+          <p>
+            You can edit this race to correct errors.
+          </p>
+          <p>
+            But please do not change it into another race since that will upset your fellow users.
+          </p>
+        </Col>
+        <Col md={5} lg={4}>
+          <Container>
+            {textFields}
 
 
-        </Row>
-      </Form>
-    )
+          </Container>
+        </Col>
 
 
-  );
+      </Row>
+
+    </Form>
+  ));
 }
 
 export default CreateRace;

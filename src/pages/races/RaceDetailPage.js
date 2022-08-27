@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
 import { axiosReq } from "../../api/axiosDefault";
 import { useParams } from "react-router-dom";
 import CommentCreateForm from "../comments/CommentCreateForm";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { Container, Stack } from "react-bootstrap";
+import { Stack } from "react-bootstrap";
 import Comment from "../comments/Comment";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Asset from "../../components/Asset";

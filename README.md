@@ -18,12 +18,12 @@ The information, the recomendation is all based and comes from personal experice
 ## Features
 ### The Business Interface
 
-#### __Signin Page__
+#### __Sign In Page__
 The login page is the first page a user will see. From here there are two ways to continue:
 - Go to the sign up page to register a new account in order to sign in. 
 - If already registered simply sign in to get access to the applications features.  
 
-#### __Sign up Page__
+#### __Sign Up Page__
 The sign up page is for new users where they fill in information to register a new account. After signing up, users will automatically be redirected to the login page. 
 
 
@@ -53,11 +53,12 @@ Users who want to read more about a specific race, can click the race name on th
 - Users can leave comments, add updated information about the race and add images to inspire other runners. 
 - The user who added the specific race can edit and update the basic information. 
 
+#### __Edit Race Page__
+The Edit Race page is where the user who added the specific race can edit and update the basic information. The instructors on the page emphazise things that are important to think about when adding a race. 
+- A user can click save or cancel and will be redirected to last visited detail page.
+
 #### __Add Race Page__
-The Add Race page is where users add races that are not already in the database. The instructors on the page emphazise things that are important to think about when adding a race: 
-- The spelling of the name of the race.
-- That the country, distance, website, date and time all are accureatly filled in.
-- The information provided is public and everyone using the application will take part of what is written. 
+The Add Race page is where users add races that are not already in the database. The instructors on the page emphazise things that are important to think about when adding a race. 
 - A user can click create or cancel and will be redirected to latest visited page.
 
 
@@ -67,30 +68,35 @@ This is the users personal page and for users to have a overview of passed and u
 ### Future Features
 There are many ways to extend the capabilities of the service. For instance I would like to add: 
 - Users can connect with other users 
-- 
+- Users can edit and update thier accounts detail
+- Users can see how many other people has liked and pressed running a race. 
 
 ## Project Plan 
 I used Git Project to plan and to follow up with my project. 
 
 
 ### User Stories
-__Users__
+__Authentication__
 - As a user I want to be able to sign up and to sign in with username and password so that I can access my account.
 - As a user I should be logged in to access the site.
 
-- As a user I want a friendly interface.
+__Race__
 - As a user I want to be able to add a race I’m interested in, I will attend or I want to recommend.
 - As a user I want to be able to edit the race I have added.
-
 - As a user I want to be able to search on a country to see upcoming races in that specific country.
+
+__Comment__
 - As a user I want to be able to see all information about a race and add to it.
 
+__Like__
 - As a user I want to be able to see the races I am interested in.
 - As a user I want to be able to mark races so that I can easily see the ones I’m interested in or will attend.
 
+__Run__
 - As a user I want to be able to see my past and upcoming races.
 - As a user I want to be able to see details about my next upcoming race so that I get an extra push.
 
+- As a user I want a friendly interface.
 
 ## Design  
 __Color Scheme__
@@ -152,23 +158,47 @@ I created my wireframes and the design using Figma.
 ## Manual Testing 
 The final version was tested by using each function on each page.
 
-Sign up Page
+Sign up Page: 
+- 
 
-Sig in Page
+Sig in Page: 
 
-Next Page
+Next Page: 
 
-Races Page 
+Races Page: 
 
-Detail Page
+Detail Page: 
 
-Runs Page
+Runs Page:
 
 ## Bugs Found
 No known bugs. 
 
 ## Deployment
 This project was deployed using Github and Heroku.
+
+__Github__
+
+Login to Github.
+- Click the green "new" button and create new repository page.
+- Chose a repository name then clicked the green "create repository button" at the bottom of the page.
+- Clicked the green ‘Gitpod’ button to create a workspace in Gitpod for editing.
+
+__Heroku__
+
+Login to Heroku.
+- Create a "New App" and give it a name, it must be unique.
+- Click "Create App" and this will take you to a page where you can deploy your project.
+
+- Click on the 'Resources' tab and search for 'Heroku Postgres' in the Add-ons section to add the Heroku Postgres database to the project.
+- Click on the 'Settings' tab at the top of the page. The following steps must be completed before deployment.
+- Click 'Reveal Config Vars'. Here the database URL is stored, it is the connection to the database, so this must be copied and stored within env.py file within the same directory as the manage.py file.
+
+- To deploy the project go to the deploy tab and scroll  down to the end and deploy our branch.
+- View the build log to make sure that everything works okay.
+- The app has been deployed to Heroku.
+
+To get the Django framework installed and set up I followed Code Institutes Django [sheet](https://codeinstitute.s3.amazonaws.com/fst/Django%20Blog%20Cheat%20Sheet%20v1.pdf)
 
 ## Credit
 
