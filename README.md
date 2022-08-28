@@ -1,7 +1,7 @@
 
-#eRace 
+# eRace
 
-__Live Site:__
+__Live site:__
 [eRace](https://erace-client.herokuapp.com/) 
 
 ## Project description 
@@ -36,16 +36,16 @@ The login page is the first page a user will see. From here there are two ways t
 #### __Sign Up Page__
 The sign up page is for new users where they fill in information to register a new account. After signing up, users will automatically be redirected to the login page. 
 
-![Sign In](src/api/assets/ReadME/signup.png)
+![Sign Up](src/api/assets/ReadME/signup.png)
 
 #### __"Next" Page__
 Once logged in, this is the landing page. Here there are two different stages. 
 - First time and before any races have been added to "my runs" a message will show with instructions. 
 - After adding races to "my runs", the race closest in time will be displayed with a countdown of days, hours, minutes and seconds left  to the start of the race. 
 
-![Sign In](src/api/assets/ReadME/noruns.png)
+![Home Page](src/api/assets/ReadME/noruns.png)
 
-![Sign In](src/api/assets/ReadME/next.png)
+![Home Page](src/api/assets/ReadME/next.png)
 
 #### __Races Page__
 The race page shows a list of all races added by users. 
@@ -59,7 +59,7 @@ There are three filter features users can choose from.
 - Users can select "liked races" and only liked races will show in the list. 
 - Users can select "upcoming races" and only upcoming races will show up in the list; passed races will not show.
 
-![Sign In](src/api/assets/ReadME/liked.png)
+![Race Page](src/api/assets/ReadME/liked.png)
 
 #### __Detail Page__
 Users who want to read more about a specific race, can click the race name on the Races or My Runs page; the detail page then shows up.
@@ -69,24 +69,26 @@ Users who want to read more about a specific race, can click the race name on th
 - Users can leave comments, add updated information about the race and add images to inspire other runners. 
 - The user who added the specific race can edit and update the basic information. 
 
-![Sign In](src/api/assets/ReadME/detail.png)
+![Detail Page](src/api/assets/ReadME/comment.png)
 
 #### __Edit Race Page__
 The Edit Race page is where the user who added the specific race can edit and update the basic information. The instructors on the page emphazise things that are important to think about when adding a race. 
 - A user can click save or cancel and will be redirected to last visited detail page.
 
+![Edit Page](src/api/assets/ReadME/edit.png)
+
 #### __Add Race Page__
 The Add Race page is where users add races that are not already in the database. The instructors on the page emphazise things that are important to think about when adding a race. 
 - A user can click create or cancel and will be redirected to latest visited page.
 
-![Sign In](src/api/assets/ReadME/add.png)
+![Add Page](src/api/assets/ReadME/add.png)
 
 #### __My Runs Page__
 This is the users personal page and for users to have a overview of passed and upcoming races. After marking races to run, the race will then be displayed on the My Runs Page. User can click the race name and the detail page then shows up.
 
-![Run page](src/api/assets/ReadME/nr.png)
+![Run Page](src/api/assets/ReadME/nr.png)
 
-![Run page](src/api/assets/ReadME/r.png)
+![Run Page](src/api/assets/ReadME/r.png)
 
 ### Future Features
 There are many ways to extend the capabilities of the service. For instance I would like to add: 
@@ -183,13 +185,13 @@ The React architecture assumes implementation of reusable components. These are 
 | HomePage | Display information about next upcomming race | App |
 | CreateRace | Input a race | App |
 | RaceListPage | Display all races in the database | App |
+| RaceDetailPage | Display all information about a race and allow input | App |
 | RunsPage | Display user's runs | App |
 | DetailRace | Display all basic information about a race | RaceDetailPage |
 | CommentCreateForm | Input a comment (text and image) | RaceDetailPage |
 | Comment | Display a comment (text and image) | RaceDetailPage |
 | Asset | Display images, messages, or animations | HomePage RaceDetailPage RaceListPage RunsPage |
 | ListRace | Display a summary of a race | RaceListPage RunsPage |
-| RaceDetailPage | Display all information about a race and allow input | ListRace |
 
 ## Testing 
 The final version was manualy tested by using each function on each page.
@@ -271,7 +273,7 @@ This project was deployed using Github and Heroku.
 
 ## Credits
 
-- Code Institude has through out the course provided me with various code solutions large and small that I have reused freely.  
+- [Code Institude](https://codeinstitute.net/) has through out the course provided me with various code solutions large and small that I have reused freely.  
 
 - [W3School](https://www.w3schools.com/) helped me out with CSS code
 
