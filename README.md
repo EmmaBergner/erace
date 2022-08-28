@@ -176,7 +176,7 @@ I created my wireframes and the design for my project using Figma.
 
 ## Implemented Components
 
-The React architecture assumes implementation of reusable components. These are the components implmented in this projected and how they are used.
+The React architecture assumes implementation of reusable components. These are the components implemented in this project and how they are used.
 
 | Component | Purpose | Used in component |
 |----|----|----|
@@ -258,7 +258,7 @@ Test were preformed using Chrome and FireFox.
 No known bugs. 
 
 ## Pre-Deployment Checklist
-- Configured axios to use the deployed server api. 
+- Configure axios to use the deployed server api. 
 
 ## Deployment 
 This project was deployed using Github and Heroku.
@@ -273,7 +273,7 @@ This project was deployed using Github and Heroku.
 
 ## Credits
 
-- [Code Institude](https://codeinstitute.net/) has through out the course provided me with various code solutions large and small that I have reused freely.  
+- [Code Institute](https://codeinstitute.net/) has through out the course provided me with various code solutions large and small that I have reused freely.  
 
 - [W3School](https://www.w3schools.com/) helped me out with CSS code
 
