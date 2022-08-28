@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { Navbar, Container, Nav } from 'react-bootstrap';
 import { NavLink } from "react-router-dom";
-import { useCurrentUser, useSetCurrentUser } from '../contexts/CurrentUserContext';
+import { useCurrentUser } from '../contexts/CurrentUserContext';
 import useClickOutsideToggle from '../hooks/useClickOutsideToggle';
 import styles from '../styles/NavBar.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -10,14 +10,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const NavBar = () => {
   const currentUser = useCurrentUser();
 
-  const setCurrentUser = useSetCurrentUser()
-
   const { expanded, setExpanded, ref } = useClickOutsideToggle();
 
   const handleSignOut = async () => {
     try {
       await axios.post('/dj-rest-auth/logout/');
-      setCurrentUser(null)
     } catch (err) {
       console.log(err.response?.data)
     }

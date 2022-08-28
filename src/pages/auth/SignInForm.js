@@ -9,7 +9,8 @@ import btnStyles from "../../styles/Button.module.css";
 
 function SignInForm() {
     const setCurrentUser = useSetCurrentUser()
-    useRedirect('loogedIn')
+
+    useRedirect('loggedIn')
 
     const [signInData, setSignInData] = useState({
         username: '',

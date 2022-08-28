@@ -7,6 +7,7 @@ import styles from "../../styles/SignInUpForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 
 const SignUpForm = () => {
+    
     useRedirect('loggedIn')
 
     const [signUpData, setSignUpData] = useState({
