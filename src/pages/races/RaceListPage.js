@@ -8,7 +8,7 @@ import styles from "../../styles/RaceListPage.module.css";
 import { axiosReq } from "../../api/axiosDefault";
 import Asset from "../../components/Asset";
 import ListRace from "./ListRace.js";
-
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 const RaceListPage = () => {
 
@@ -22,10 +22,14 @@ const RaceListPage = () => {
 
     const [upcoming, setUpcoming] = useState(false)
 
+    const currentUser = useCurrentUser();
+
+    const profile_id = currentUser?.profile_id || "";
+
     const fetchRaces = async () => {
         try {
-            const filter = starOnly ? 'stars__owner__profile=3&' : ''
-            const { data } = await axiosReq.get(`/races/?${filter}search=${country}`);
+            const filter = starOnly ? `stars__owner__profile=${profile_id}&` : ''
+            const { data } = await axiosReq.get(`/races/?${filter}currentUser=${currentUser.pk}&search=${country}`);
             if (upcoming) {
                 data.results = filterUpcoming(data.results)
             }
@@ -67,7 +71,7 @@ const RaceListPage = () => {
         setHasLoaded(false);
         fetchRaces();
         // eslint-disable-next-line
-    }, [starOnly, upcoming]);
+    }, [starOnly, upcoming, currentUser]);
 
     return (
 

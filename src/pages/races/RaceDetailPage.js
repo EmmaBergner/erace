@@ -23,7 +23,7 @@ function RaceDetailPage() {
         const handleMount = async () => {
             try {
                 const [{ data: r }, { data: c }] = await Promise.all([
-                    axiosReq.get(`/races/${id}`),
+                    axiosReq.get(`/races/${id}/?currentUser=${currentUser.pk}`),
                     axiosReq.get(`/comments/?race=${id}`)
                 ])
                 setRace(r);

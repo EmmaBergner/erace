@@ -14,6 +14,7 @@ import RaceCreateForm from './pages/races/CreateRace';
 import HomePage from './pages/home/HomePage';
 import RunsPage from './pages/runs/RunsPage';
 import RaceDetailPage from './pages/races/RaceDetailPage';
+
 library.add(fas, far)
 
 function App() {

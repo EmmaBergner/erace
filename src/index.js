@@ -11,7 +11,7 @@ root.render(
   <React.StrictMode>
     <Router>
       <CurrentUserProvider>
-          <App />
+        <App />
       </CurrentUserProvider>
     </Router>
   </React.StrictMode>
@@ -21,3 +21,4 @@ root.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+ 
