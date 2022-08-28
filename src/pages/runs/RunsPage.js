@@ -44,7 +44,7 @@ function RunsPage() {
 
     return (
         <Container >
-            <div className={styles.userLogo}>{currentUser.username}</div>
+            <div className={styles.userLogo}>{currentUser?.username}</div>
             {
                 passed.length > 0 || upcoming.length > 0 ? null
                     :

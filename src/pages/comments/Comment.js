@@ -1,7 +1,7 @@
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import { useNavigate } from "react-router-dom";
 import { axiosRes } from '../../api/axiosDefault';
-import React, { useState } from "react";
+import React from "react";
 import { Card, Col, Container, Row, } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styles from "../../styles/Comment.module.css";
@@ -19,8 +19,6 @@ const Comment = (props) => {
     const currentUser = useCurrentUser();
 
     const isOwner = currentUser?.username === ownerUsername
-
-    const navigate = useNavigate();
 
     const handleDelete = async () => {
         try {

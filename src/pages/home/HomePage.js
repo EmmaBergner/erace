@@ -14,7 +14,6 @@ const HomePage = () => {
     const [nextRace, setNextRace] = useState(null)
     const currentUser = useCurrentUser();
     const profile_id = currentUser?.profile_id || "";
-    const regionNames = new Intl.DisplayNames(['en'], { type: 'region' });
 
     // Select the race that is closest in time. 
     const calculateNext = (allOptions) => {

@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
+
   const setCurrentUser = useSetCurrentUser()
 
   const { expanded, setExpanded, ref } = useClickOutsideToggle();
