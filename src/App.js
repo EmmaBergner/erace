@@ -1,7 +1,6 @@
 import styles from './App.module.css';
 import './api/axiosDefault';
 import NavBar from './components/NavBar';
-import { useCurrentUser } from './contexts/CurrentUserContext';
 import { Route, Routes } from 'react-router-dom';
 import SignUpForm from './pages/auth/SignUpForm';
 import SignInForm from './pages/auth/SignInForm';
@@ -18,9 +17,6 @@ import RaceDetailPage from './pages/races/RaceDetailPage';
 library.add(fas, far)
 
 function App() {
-  const currentUser = useCurrentUser();
-  const profile_id = currentUser?.profile_id || "";
-
   return (
     <div className={styles.App}>
       <NavBar />
@@ -30,7 +26,6 @@ function App() {
             element={<RaceListPage
               message="No results found. Adjust the search keyword or follow a user."
               filter={""} />} />
-
           <Route exact path="/signup" element={<SignUpForm />} />
           <Route exact path="/signin" element={<SignInForm />} />
           <Route exact path="/" element={<HomePage />} />

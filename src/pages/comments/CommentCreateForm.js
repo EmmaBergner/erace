@@ -7,7 +7,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import styles from "../../styles/CommentCreateForm.module.css";
 
 function CommentCreateForm(props) {
-  const { race, setRace, setComments, profileImage, profile_id } = props;
+  const { race, setComments } = props;
   const [text, setText] = useState("");
   const [image, setImage] = useState("");
 
@@ -33,7 +33,7 @@ function CommentCreateForm(props) {
       formData.append("owner", currentUser.pk)
       formData.append("race", race.id)
       formData.append("text", text)
-      if (image != "") {
+      if (image !== "") {
         formData.append("image", imageInput.current.files[0])
       }
 

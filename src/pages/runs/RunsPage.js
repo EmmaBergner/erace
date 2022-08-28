@@ -40,6 +40,7 @@ function RunsPage() {
     useEffect(() => {
         setHasLoaded(false);
         if (currentUser) fetchRaces();
+        // eslint-disable-next-line
     }, [currentUser]);
 
     return (

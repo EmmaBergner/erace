@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Col, Container, Row, } from 'react-bootstrap';
+import { Card, Col, Row } from 'react-bootstrap';
 import { axiosRes } from '../../api/axiosDefault';
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { useNavigate } from "react-router-dom";
@@ -52,9 +52,6 @@ const DetailRace = (props) => {
             console.log(err);
         }
     };
-
-    const regionNames = new Intl.DisplayNames(['en'], { type: 'region' });
-
 
     return (
         <Card className={styles.Race}>
@@ -111,7 +108,7 @@ const DetailRace = (props) => {
                             <Col xs={4} sm={4} > Website: </Col>
                             <Col className={styles.websiteLink}>
                                 {website ?
-                                    (<a href={"//" + website} target="_blank" > {website} </a>) : ("")}
+                                    (<a href={"//" + website} target="_blank" rel="noreferrer"> {website} </a>) : ("")}
 
                             </Col>
                         </Row>

@@ -59,12 +59,14 @@ const RaceListPage = () => {
         return () => {
             clearTimeout(timer);
         };
+        // eslint-disable-next-line
     }, [country]);
 
 
     useEffect(() => {
         setHasLoaded(false);
         fetchRaces();
+        // eslint-disable-next-line
     }, [starOnly, upcoming]);
 
     return (
@@ -77,7 +79,7 @@ const RaceListPage = () => {
                     <Container>
                         <Row>
                             <Col md={4} xs={12}>
-                                <Form.Control type= "text" value={country} onChange={(event) => setCountry(event.target.value)}/>
+                                <Form.Control type="text" value={country} onChange={(event) => setCountry(event.target.value)} />
                             </Col>
                             <Col md={2} xs={6}>
                                 <Form.Check type="checkbox" value={starOnly} onChange={(event) => setStarOnly(!starOnly)} label="Liked Races" className={styles.Checkbox} />
@@ -95,15 +97,15 @@ const RaceListPage = () => {
                     <Col md={8}>
                         {hasLoaded ? (
                             <>
-                                {races.results.length ? 
+                                {races.results.length ?
                                     races.results.map((race) => (
                                         <ListRace key={race.id} {...race} setRaces={setRaces} showStar padd />
                                     )
-                                ) : (
-                                    <Container className={appStyles.Content}>
-                                        Please add some races and run with it!
-                                    </Container>
-                                )}
+                                    ) : (
+                                        <Container className={appStyles.Content}>
+                                            Please add some races and run with it!
+                                        </Container>
+                                    )}
                             </>
                         ) : (
                             <Container className={appStyles.Content}>

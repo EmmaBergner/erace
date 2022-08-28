@@ -10,19 +10,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const ListRace = (props) => {
     const {
-        id, star_id, owner, name, distance, country, date, setRaces, showStar, padd
+        id, star_id, name, distance, country, date, setRaces, showStar, padd
     } = props;
 
     const currentUser = useCurrentUser();
-
-    const is_owner = currentUser?.username === owner
 
     const navigate = useNavigate();
 
     const handleStar = async () => handleActivate('/stars/', 'star_id', id, setRaces, currentUser);
     const handleUnstar = async () => handleDeactivate('/stars/', 'star_id', star_id, id, setRaces);
-
-    const regionNames = new Intl.DisplayNames(['en'], { type: 'region' });
 
     return (
         <Card className={styles.Race}>

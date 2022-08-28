@@ -1,5 +1,4 @@
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
-import { useNavigate } from "react-router-dom";
 import { axiosRes } from '../../api/axiosDefault';
 import React from "react";
 import { Card, Col, Container, Row, } from 'react-bootstrap';
@@ -25,7 +24,7 @@ const Comment = (props) => {
             await axiosRes.delete(`/comments/${id}/`);
             setComments((prevComments) => ({
                 ...prevComments,
-                results: prevComments.results.filter((c) => c.id != id)
+                results: prevComments.results.filter((c) => c.id !== id)
             }));
         }
         catch (err) { console.log(err) }

@@ -2,14 +2,13 @@ import React, { useEffect, useState } from "react";
 import { Form, Button, Col, Container, Alert, Row } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefault";
-import { useRedirect } from "../../hooks/UseRedirect";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import styles from "../../styles/CreateRace.module.css";
 import btnStyles from "../../styles/Button.module.css";
 
 
 function CreateRace() {
-  useRedirect('loggedOut')
+
   const [errors, setErrors] = useState({});
 
   const { id } = useParams();
@@ -47,6 +46,7 @@ function CreateRace() {
       }
     };
     handleMount();
+    // eslint-disable-next-line
   }, [id]);
 
   const handleSubmit = async (event) => {
