@@ -32,9 +32,9 @@ const ListRace = (props) => {
 
                 <Container>
                     <Row>
-                        <Col className={padd ? "" : "p-0"}>
+                        <Col className={padd ? "" : "p-0"} onClick={() => navigate(`/races/${id}`)}> 
                             <Row >
-                                <Col md={5} sm={8} xs={12} className={styles.raceName} onClick={() => navigate(`/races/${id}`)}>
+                                <Col md={5} sm={8} xs={12} className={styles.raceName} >
                                     {name}
                                 </Col>
 
