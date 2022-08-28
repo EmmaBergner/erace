@@ -125,7 +125,7 @@ const HomePage = () => {
                     (
                         <Container className={styles.HomePage}>
                             <Card.Body className="p-1">
-                                <div class="row gx-5">
+                                <div className="row gx-5">
                                     <Col sm={3} xs={3} className="p-0">
                                         {Math.floor(timeLeftSeconds / (60 * 60 * 24))}
                                         <p className={styles.Label}>Days</p>
